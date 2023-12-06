@@ -313,8 +313,8 @@ os.system('xdg-open https://github.com/SF-HASAN')
 
 
 
-logo = ("""
-                                
+logo = ("""          
+                      
   /$$$$$$  /$$   /$$       /$$      /$$  /$$$$$$  /$$   /$$ /$$      /$$ /$$   /$$ /$$$$$$$ 
  /$$__  $$| $$  /$$/      | $$$    /$$$ /$$__  $$| $$  | $$| $$$    /$$$| $$  | $$| $$__  $$
 | $$  \__/| $$ /$$/       | $$$$  /$$$$| $$  \ $$| $$  | $$| $$$$  /$$$$| $$  | $$| $$  \ $$
@@ -323,25 +323,13 @@ logo = ("""
  /$$  \ $$| $$\  $$       | $$\  $ | $$| $$  | $$| $$  | $$| $$\  $ | $$| $$  | $$| $$  | $$
 |  $$$$$$/| $$ \  $$      | $$ \/  | $$| $$  | $$| $$  | $$| $$ \/  | $$|  $$$$$$/| $$$$$$$/
  \______/ |__/  \__/      |__/     |__/|__/  |__/|__/  |__/|__/     |__/ \______/ |_______/ 
-                                                                                                                                                                                                                                                       
-                                  \x1b[1;96mSK \x1b[1;94MAHMUD \033[1;31mSK \033[1;32MAHMUD                                                
-
-
-
-     \033[1;32m══\x1b[1;91m══\033[1;32m══\033[1;31m══\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m══\033[1;31m═DCCS-TEAM═\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m═══\033[1;31m══\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m══\033[1;31m══\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m══\033[1;31m══\x1b[1;94m══\x1b[1;96m═══
-
-     \x1b[1;96m Author       : \033[1;32m      SK
+                                                                                                                                                                                                                                                      
      \x1b[1;96m Facebook     :  \033[1;32m  SK MAHMUD
-
-     \x1b[1;96m GitHub       : \033[1;32m      FUCK 
-
+     \x1b[1;96m GitHub          : \033[1;32m   FUCK 
      \x1b[1;96m Tool Status  : \033[1;32m   FREE X ENJOY
-
-     \x1b[1;96m Team         : \033[1;32m      ULTRA-X
-
-     \x1b[1;96m Tool Work    :  \033[1;32m  DATA+WIFI (DATA FULL WORKING)
-
-     \x1b[1;96m Version      : \033[1;32m      0.1
+     \x1b[1;96m Team            : \033[1;32m   ULTRA-X
+     \x1b[1;96m Tool Work    :  \033[1;32m  DATA+WIFI
+     \x1b[1;96m  Version        : \033[1;32m    0.1
 
      \033[1;32m══\x1b[1;91m══\033[1;32m══\033[1;31m══\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m══\033[1;31m═DCCS-TEAM═\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m═══\033[1;31m══\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m══\033[1;31m══\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m══\033[1;31m══\x1b[1;94m══\x1b[1;96m═══
 
@@ -369,9 +357,9 @@ class Main:
 
         print("\033[1;32m══\x1b[1;91m══\033[1;32m══\033[1;31m══\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m═DCCS-TEAM═\033[1;31m══\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m═══\033[1;31m══\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m══\033[1;31m══\x1b[1;94m══\x1b[1;96m══\x1b[1;91m══\033[1;32m══\033[1;31m══\x1b[1;94m══\x1b[1;96m═══")
 
-        print(" [01] RANDOM  NUMBER CLONE \033[1;34m[ULTRA WORKING Tested By SK]")
+        print(" [01] RANDOM  NUMBER CLONE 
 
-        print(" [02] MY fACEBOOK ACCOUNT  \033[1;35m[Sk Mahmud] ")
+        print(" [02] MY fACEBOOK ACCOUNT 
 
         print(" [00] Exit")
 
@@ -379,7 +367,7 @@ class Main:
 
         Alif =input(" [?] Choose : ")
 
-        os.system('xdg-open https://www.facebook.com/asiea.asiea.94')
+        os.system('xdg-open https://www.facebook.com/shipukhan72')
 
         if Alif in ["1", "01"]:
 
@@ -387,7 +375,7 @@ class Main:
 
         if Alif in ["2","02"]:
 
-            os.system('xdg-open https://www.facebook.com/asiea.asiea.94')
+            os.system('xdg-open https://www.facebook.com/shipukhan72')
 
         if Alif in [" 0", "00"]:
 
