@@ -57,7 +57,7 @@ def MR_SHIPU():
 #--------------- bd clone def --------------#
 def BD_CLONING():
 	 user=[]
-     clear
+    
      print (' EXAMPLE SIM CODE : [016] [017] [018] [019]')
      code=input(' ENTER SIM CODE >> ')
      linex()
