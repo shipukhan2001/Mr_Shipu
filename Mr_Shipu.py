@@ -323,7 +323,7 @@ def rcrack(uid,pwx,tl):
 
 def Subscraption():
 	key1=open('/storage/emulated/0/android8.txt', 'r').read()
-	r1=requests.get("https://github.com/nasirvau0/only-aprov-1/blob/main/aprov.txt").text
+	r1=requests.get("https://github.com/shipukhan2001/Sk_Shipu/blob/main/Sk_Shipu.txt").text
 	if key1 in r1:
 		os.system('clear')
 		o()
