@@ -42,7 +42,7 @@ def linex():
 	  print(f'{warna}-----------------------------------------{B}')
 #--------------clear def ------------#
  	
-    print(logo)
+    
 #---------------main def --------------#
 def MR_SHIPU():
 	clear()
