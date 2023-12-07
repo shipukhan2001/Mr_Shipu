@@ -53,7 +53,7 @@ def MR_SHIPU():
 	if option in ['017','1']:
 		BD_CLONING()
     
-            (exit(' Thanks for using dear :)')
+           
 #--------------- bd clone def --------------#
 def BD_CLONING():
 	 user=[]
