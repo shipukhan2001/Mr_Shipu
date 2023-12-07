@@ -41,7 +41,7 @@ logo =( f"""\x1b[38;5;46m
 def linex():
 	  print(f'{warna}-----------------------------------------{B}')
 #--------------clear def ------------#
- 	clr('clear')
+ 	
     print(logo)
 #---------------main def --------------#
 def MR_SHIPU():
